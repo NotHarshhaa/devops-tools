@@ -79,6 +79,10 @@ Development environment tools **streamline the setup** of consistent software co
 🔹 **[kind](https://kind.sigs.k8s.io/)** (Open Source) – Spin up Kubernetes clusters using Docker containers.  
 🔹 **[k3d](https://k3d.io/)** (Open Source) – Lightweight wrapper for running **k3s** in Docker.  
 
+### ⚡ **Developer Productivity Utilities**
+
+🔹 **[Telert](https://github.com/navig-me/telert)** (Open Source) – Get alerts when terminal commands finish, via Telegram, Teams, Slack or Desktop.
+
 ---
 
 ## 📝 **Source Code Management (SCM)**  
