@@ -418,6 +418,7 @@ API tools simplify **development, testing, and documentation** of REST and SOAP 
 🔹 **[SoapUI](https://www.soapui.org/)** (Open Source & Enterprise) – **A robust API testing tool**, designed for **SOAP and REST API automation**.  
 🔹 **[Swagger](https://swagger.io/)** (Open Source & Enterprise) – **API design, documentation, and testing framework**, widely used for OpenAPI specifications.  
 🔹 **[HTTPie](https://github.com/httpie/cli)** (Open Source) – **A user-friendly command-line HTTP client**, making API interaction seamless.  
+🔹 **[HttpMaster](https://www.httpmaster.net/)** (Free) – **HTTP debugging and testing tool**, for developers and testers.
 
 ---
 
