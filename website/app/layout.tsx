@@ -7,21 +7,21 @@ import { ThemeProvider } from "./components/ThemeProvider";
 export const metadata: Metadata = {
   title: "DevOps Arsenal - Ultimate DevOps Toolkit",
   description:
-    "Discover 200+ cutting-edge DevOps tools for development, deployment, monitoring, automation, security, and more in our interactive explorer.",
+    "A comprehensive collection of essential DevOps tools for development, deployment, monitoring, automation, security, and more. Whether you're a beginner exploring DevOps or a seasoned engineer looking for the best tools, this site has everything you need!",
   keywords:
     "DevOps, tools, automation, CI/CD, monitoring, infrastructure, containerization, kubernetes",
-  authors: [{ name: "DevOps Community" }],
+  authors: [{ name: "Harshha Reddy" }],
   openGraph: {
     title: "DevOps Arsenal - Ultimate DevOps Toolkit",
     description:
-      "Discover 200+ cutting-edge DevOps tools for modern development workflows",
+      "A comprehensive collection of essential DevOps tools for development, deployment, monitoring, automation, security, and more. Whether you're a beginner exploring DevOps or a seasoned engineer looking for the best tools, this site has everything you need!",
     images: [{ url: "https://imgur.com/74NDd2v.png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "DevOps Arsenal - Ultimate DevOps Toolkit",
     description:
-      "Discover 200+ cutting-edge DevOps tools for modern development workflows",
+      "A comprehensive collection of essential DevOps tools for development, deployment, monitoring, automation, security, and more. Whether you're a beginner exploring DevOps or a seasoned engineer looking for the best tools, this site has everything you need!",
     images: ["https://imgur.com/74NDd2v.png"],
   },
 };

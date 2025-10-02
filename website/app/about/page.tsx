@@ -23,8 +23,11 @@ export default function AboutPage() {
               About DevOps Arsenal
             </h1>
             <p className="text-base md:text-xl mb-4 md:mb-8 max-w-3xl mx-auto text-white">
-              The comprehensive collection of DevOps tools to supercharge your
-              development workflow
+              A comprehensive collection of essential DevOps tools for
+              development, deployment, monitoring, automation, security, and
+              more. Whether you're a beginner exploring DevOps or a seasoned
+              engineer looking for the best tools, this site has everything you
+              need!
             </p>
           </div>
         </div>
@@ -42,8 +45,9 @@ export default function AboutPage() {
               <p className="text-gray-600 dark:text-gray-300 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
                 DevOps Arsenal was created to address a common challenge in the
                 modern development landscape: finding the right tools for the
-                job. With hundreds of DevOps tools available, navigating this
-                ecosystem can be overwhelming.
+                job. Whether you're a beginner or a seasoned engineer, with
+                hundreds of DevOps tools available, navigating this ecosystem
+                can be overwhelming.
               </p>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm md:text-base">
                 We've curated a comprehensive collection of over 200 essential
@@ -153,7 +157,8 @@ export default function AboutPage() {
                     experience in building modern development pipelines and
                     infrastructure. I created DevOps Arsenal to share my
                     knowledge of the DevOps ecosystem and help others navigate
-                    the complex landscape of development tools.
+                    the complex landscape of development tools, whether you're
+                    just starting out or are a seasoned professional.
                   </p>
                   <p className="text-gray-600 dark:text-gray-300 mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
                     With a background in software development and infrastructure

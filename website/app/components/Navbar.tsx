@@ -73,7 +73,7 @@ export default function Navbar() {
                   </span>
                 </span>
                 <p className="text-xs text-gray-500 dark:text-gray-400 -mt-1 hidden sm:block">
-                  200+ Tools for Modern DevOps
+                  Essential tools for DevOps beginners & experts
                 </p>
               </div>
             </Link>

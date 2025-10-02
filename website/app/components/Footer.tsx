@@ -58,7 +58,9 @@ export default function Footer() {
             <p className="mb-4 md:mb-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
               A comprehensive collection of essential DevOps tools for
               development, deployment, monitoring, automation, security, and
-              more. Curated to help teams build better software faster.
+              more. Whether you're a beginner exploring DevOps or a seasoned
+              engineer looking for the best tools, this site has everything you
+              need!
             </p>
             <div className="flex items-center text-sm bg-white/95 dark:bg-cardBg/80 p-3 rounded-xl border border-gray-200 dark:border-accent/20 shadow-sm backdrop-blur-sm">
               <FaHeart className="text-pink-500 dark:text-tertiary mr-2" />
@@ -162,8 +164,9 @@ export default function Footer() {
 
             <div className="mt-6 bg-gradient-to-r from-white/90 to-purple-50/90 dark:from-cardBg dark:to-cardBgHover p-4 rounded-xl border border-gray-200 dark:border-gray-800 hover:scale-[1.02] transition-transform duration-300 shadow-sm backdrop-blur-sm">
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Join our community and stay updated with the latest DevOps tools
-                and practices.
+                Join our community and explore DevOps tools whether you're a
+                beginner or a seasoned engineer. Stay updated with the latest
+                practices!
               </p>
             </div>
           </div>
