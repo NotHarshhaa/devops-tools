@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simple background with purple fill -->
+  <circle cx="16" cy="16" r="15" fill="#8B5CF6" />
+
+  <!-- Simplified tool icon that works at small sizes -->
+  <path d="M8 20L14 14M14 14L18 10L22 14L18 18L14 14Z"
+        stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Simple rocket element -->
+  <path d="M20 20L24 24" stroke="white" stroke-width="2.5" stroke-linecap="round" />
+  <path d="M16 24C16 24 14 26 16 24C18 22 20 20 20 20" fill="white" stroke="white" stroke-width="0.5" />
+</svg>

@@ -1,0 +1,36 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <circle cx="128" cy="128" r="120" fill="url(#grad1)" />
+
+  <!-- Inner circle for depth -->
+  <circle cx="128" cy="128" r="110" fill="url(#grad2)" />
+
+  <!-- Wrench with shadow effect -->
+  <path d="M183.5 72.5C173 62 158 60 145 68L110 103L130 123L165 88C173 75 171 60 160.5 49.5"
+        stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"
+        filter="drop-shadow(0 2px 3px rgba(0,0,0,0.2))"/>
+
+  <!-- Gear with shadow and details -->
+  <circle cx="80" cy="172" r="20" fill="rgba(255,255,255,0.15)" />
+  <path d="M126 126L80 172C74 178 64 178 58 172C52 166 52 156 58 150L104 104"
+        stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"
+        filter="drop-shadow(0 2px 3px rgba(0,0,0,0.2))"/>
+
+  <!-- Rocket with enhanced design -->
+  <path d="M178 168C178 168 158 188 138 168C118 148 138 128 138 128C138 128 158 148 178 168Z"
+        fill="white" filter="drop-shadow(0 2px 3px rgba(0,0,0,0.2))"/>
+  <path d="M178 168L196 186" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="148" cy="148" r="8" fill="rgba(255,255,255,0.7)" />
+
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9333EA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,316 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+    --foreground-rgb: 31, 41, 55;
+    --background-start-rgb: 245, 245, 245;
+    --background-end-rgb: 250, 250, 250;
+    --primary-color: 124, 58, 237; /* purple-600 */
+    --primary-dark: 109, 40, 217; /* purple-700 */
+    --accent-color: 220, 38, 38; /* red-600 */
+}
+
+:root.dark {
+    --foreground-rgb: 255, 255, 254;
+    --background-start-rgb: 15, 14, 23;
+    --background-end-rgb: 22, 21, 40;
+    --primary-color: 127, 90, 240; /* accent */
+    --primary-dark: 107, 70, 233; /* accent-dark */
+    --accent-color: 229, 49, 112; /* tertiary */
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+            to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))
+        )
+        rgb(var(--background-start-rgb));
+    min-height: 100vh;
+    position: relative;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(124, 58, 237, 0.08),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(236, 72, 153, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 60% 10%,
+            rgba(220, 38, 38, 0.05),
+            transparent 20%
+        );
+    pointer-events: none;
+    z-index: -2;
+    transition: opacity 0.3s ease;
+}
+
+.dark body::before {
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(127, 90, 240, 0.15),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 137, 6, 0.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 60% 10%,
+            rgba(229, 49, 112, 0.1),
+            transparent 20%
+        );
+    z-index: -2;
+}
+
+/* Grid Background Styles */
+.grid-bg {
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(156, 163, 175, 0.3) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(156, 163, 175, 0.3) 1px,
+            transparent 1px
+        );
+    background-size: 40px 40px;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.dark .grid-bg {
+    background-image:
+        linear-gradient(to right, rgba(31, 41, 55, 0.5) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(31, 41, 55, 0.5) 1px, transparent 1px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(var(--background-start-rgb));
+}
+
+::-webkit-scrollbar-thumb {
+    background: theme("colors.accent");
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: theme("colors.accent-dark");
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@keyframes wave {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@layer components {
+    .container {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .btn {
+        @apply px-6 py-3 rounded-xl font-medium transition-all duration-300 relative overflow-hidden;
+    }
+
+    @media (max-width: 768px) {
+        .btn {
+            @apply px-4 py-2 text-sm;
+        }
+    }
+
+    .btn-primary {
+        @apply bg-purple-600 dark:bg-accent text-white hover:bg-purple-700 dark:hover:bg-accent-dark hover:shadow-lg dark:hover:shadow-neon-sm transform hover:-translate-y-1;
+    }
+
+    .hero-btn {
+        @apply backdrop-blur-sm transition-all duration-300 shadow-lg border-2 border-white/50 text-white font-medium px-8 py-4 rounded-2xl hover:shadow-xl hover:scale-105;
+    }
+
+    .btn-secondary {
+        @apply bg-red-500 dark:bg-highlight text-white hover:bg-red-600 dark:hover:bg-highlight-dark hover:shadow-lg dark:hover:shadow-neon-highlight transform hover:-translate-y-1;
+    }
+
+    .btn-outline {
+        @apply border-2 border-purple-600 dark:border-accent text-purple-600 dark:text-accent hover:bg-purple-600 dark:hover:bg-accent hover:text-white transform hover:-translate-y-1;
+    }
+
+    .card {
+        @apply bg-white dark:bg-cardBg rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-800 backdrop-blur-sm transition-all duration-300 hover:shadow-lg dark:hover:shadow-neon-sm;
+    }
+
+    @media (max-width: 768px) {
+        .card {
+            @apply p-4;
+        }
+    }
+
+    .glass-card {
+        @apply bg-white/95 dark:bg-cardBg/80 backdrop-blur-lg rounded-2xl border border-gray-200/80 dark:border-gray-800/50 shadow-md;
+    }
+
+    .section-title {
+        @apply text-4xl font-bold mb-8 text-gray-800 dark:text-text-light font-display;
+    }
+
+    .gradient-text {
+        @apply text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 dark:from-gradient-start dark:via-gradient-mid dark:to-gradient-end animate-text-gradient;
+    }
+
+    .hero-gradient-text {
+        @apply text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-yellow-200;
+    }
+
+    .tool-category {
+        @apply text-2xl font-semibold mb-4 text-text-light;
+    }
+
+    .tool-item {
+        @apply flex items-start gap-3 mb-3;
+    }
+
+    .tool-name {
+        @apply font-medium text-accent hover:text-accent-light transition-colors;
+    }
+
+    .tool-badge {
+        @apply text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-cardBg border border-gray-300 dark:border-accent/30 text-purple-600 dark:text-accent transition-colors duration-300;
+    }
+
+    @media (max-width: 768px) {
+        .section-title {
+            @apply text-2xl mb-4;
+        }
+
+        .tool-category {
+            @apply text-xl;
+        }
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-wave {
+        animation: wave 8s ease-in-out infinite;
+    }
+
+    .animate-glow {
+        @apply animate-glow;
+    }
+
+    .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .animate-bounce {
+        animation: bounce 1s infinite;
+    }
+
+    .wave-divider {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .wave-divider svg {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 70px;
+    }
+
+    .pill-button {
+        @apply px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border-2;
+    }
+
+    .nav-link {
+        @apply relative overflow-hidden transition-all duration-300 hover:text-accent;
+    }
+
+    .nav-link::after {
+        @apply content-[''] absolute w-0 h-0.5 bg-accent bottom-0 left-0 transition-all duration-300;
+    }
+
+    .nav-link:hover::after {
+        @apply w-full;
+    }
+}

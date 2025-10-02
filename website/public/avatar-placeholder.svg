@@ -1,0 +1,16 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="200" cy="200" r="200" fill="url(#grad1)"/>
+
+  <!-- Simple Avatar Shape -->
+  <path d="M200 220C244.183 220 280 184.183 280 140C280 95.8172 244.183 60 200 60C155.817 60 120 95.8172 120 140C120 184.183 155.817 220 200 220Z" fill="white"/>
+  <path d="M200 240C133.333 240 80 280 60 360H340C320 280 266.667 240 200 240Z" fill="white"/>
+
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9333EA;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+</svg>
