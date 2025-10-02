@@ -88,7 +88,7 @@ export default function Footer() {
               </li>
               <li className="hover:translate-x-1 transition-transform duration-200">
                 <Link
-                  href="#categories"
+                  href="/categories"
                   className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-accent transition-colors flex items-center"
                 >
                   <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2"></span>{" "}

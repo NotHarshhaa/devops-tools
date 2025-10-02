@@ -82,7 +82,7 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             <Link
-              href="#categories"
+              href="/categories"
               className="nav-link text-gray-700 dark:text-text-light"
             >
               <span className="flex items-center">
@@ -154,7 +154,7 @@ export default function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden mt-3 space-y-2 glass-card p-3 rounded-xl shadow-lg">
             <Link
-              href="#categories"
+              href="/categories"
               className="flex items-center text-gray-700 dark:text-text-light hover:bg-gray-100 dark:hover:bg-secondary/40 p-2.5 rounded-lg transition-colors text-sm"
               onClick={() => setIsMenuOpen(false)}
             >

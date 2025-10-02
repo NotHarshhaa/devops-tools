@@ -191,12 +191,12 @@ export default function Home() {
               need!
             </p>
             <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-              <a
-                href="#categories"
+              <Link
+                href="/categories"
                 className="btn bg-white hover:bg-gray-100 text-purple-600 px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg flex items-center"
               >
-                Explore Tools <WrenchIcon className="w-5 h-5 ml-2" />
-              </a>
+                Explore Categories <WrenchIcon className="w-5 h-5 ml-2" />
+              </Link>
               <a
                 href="https://github.com/NotHarshhaa/devops-tools"
                 className="btn bg-gray-900 hover:bg-black text-white px-6 py-3 rounded-xl font-medium flex items-center justify-center transition-all duration-300 hover:shadow-lg"
@@ -218,7 +218,7 @@ export default function Home() {
       >
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-10 text-center text-gray-800 dark:text-text-light font-display">
-            Browse DevOps Tool Categories
+            Featured DevOps Tools
           </h2>
 
           {loading ? (
@@ -228,7 +228,10 @@ export default function Home() {
           ) : (
             <div>
               {/* Search and Filter */}
-              <div className="mb-6 md:mb-8 bg-white/90 dark:bg-cardBg/90 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg">
+              <div
+                id="categories"
+                className="mb-6 md:mb-8 bg-white/90 dark:bg-cardBg/90 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg"
+              >
                 <div className="flex flex-col md:flex-row gap-4 md:gap-4">
                   <div className="relative flex-grow">
                     <input
