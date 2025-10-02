@@ -184,10 +184,11 @@ export default function Home() {
               DevOps Arsenal
             </h1>
             <p className="text-lg md:text-xl mb-6 md:mb-8 max-w-3xl mx-auto text-white">
-              A comprehensive collection of{" "}
-              {categories.reduce((acc, cat) => acc + cat.tools.length, 0)}+
-              essential DevOps tools for development, deployment, monitoring,
-              and more.
+              A comprehensive collection of essential DevOps tools for
+              development, deployment, monitoring, automation, security, and
+              more. Whether you're a beginner exploring DevOps or a seasoned
+              engineer looking for the best tools, this site has everything you
+              need!
             </p>
             <div className="flex flex-wrap justify-center gap-3 md:gap-4">
               <a
@@ -228,7 +229,7 @@ export default function Home() {
             <div>
               {/* Search and Filter */}
               <div className="mb-6 md:mb-8 bg-white/90 dark:bg-cardBg/90 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg">
-                <div className="flex flex-col md:flex-row gap-3 md:gap-4">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-4">
                   <div className="relative flex-grow">
                     <input
                       type="text"
@@ -249,21 +250,24 @@ export default function Home() {
                     )}
                   </div>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3">
                     <span className="text-sm whitespace-nowrap text-gray-700 dark:text-gray-300">
                       Filter by:
                     </span>
-                    <select
-                      value={activeType}
-                      onChange={(e) => setActiveType(e.target.value)}
-                      className="bg-white dark:bg-secondary/50 rounded-lg px-3 py-2 text-gray-800 dark:text-text-light border border-gray-200 dark:border-gray-700"
-                    >
-                      {toolTypes.map((type) => (
-                        <option key={type} value={type}>
-                          {type === "all" ? "All Types" : type}
-                        </option>
-                      ))}
-                    </select>
+                    <div className="relative">
+                      <select
+                        value={activeType}
+                        onChange={(e) => setActiveType(e.target.value)}
+                        className="min-w-[140px] sm:min-w-[160px] font-medium cursor-pointer text-sm md:text-base"
+                        aria-label="Filter tools by type"
+                      >
+                        {toolTypes.map((type) => (
+                          <option key={type} value={type}>
+                            {type === "all" ? "All Types" : type}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -395,8 +399,9 @@ export default function Home() {
             Join the DevOps Arsenal Community
           </h2>
           <p className="text-base md:text-lg mb-5 md:mb-6 max-w-3xl mx-auto text-gray-700 dark:text-gray-300">
-            Start using these tools to streamline your DevOps processes or
-            contribute to our collection to help others improve their workflows.
+            Whether you're a beginner exploring DevOps or a seasoned engineer,
+            start using these tools to streamline your processes or contribute
+            to our collection to help others improve their workflows.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a

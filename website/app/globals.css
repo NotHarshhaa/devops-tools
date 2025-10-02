@@ -252,6 +252,44 @@ body::before {
         @apply text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-cardBg border border-gray-300 dark:border-accent/30 text-purple-600 dark:text-accent transition-colors duration-300;
     }
 
+    /* Custom select dropdown styling */
+    select {
+        @apply appearance-none bg-white dark:bg-secondary/50 rounded-xl px-4 py-2.5 pr-10 text-gray-800 dark:text-text-light border border-gray-200 dark:border-gray-700/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent shadow-sm transition-all duration-300;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.75rem center;
+        background-size: 1.25rem;
+    }
+
+    select:focus {
+        @apply shadow-md dark:shadow-accent/20;
+    }
+
+    /* Improve dropdown option styling */
+    select option {
+        @apply py-3 px-4 bg-white dark:bg-secondary/90 text-gray-800 dark:text-text-light cursor-pointer font-medium;
+    }
+
+    /* Active/selected option */
+    select option:checked,
+    select option:focus,
+    select option:hover {
+        @apply bg-purple-100 dark:bg-accent/30 text-purple-600 dark:text-accent font-medium;
+    }
+
+    /* Fancy dropdown scrollbar */
+    select::-webkit-scrollbar {
+        @apply w-2;
+    }
+
+    select::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    select::-webkit-scrollbar-thumb {
+        @apply bg-purple-300 dark:bg-accent/40 rounded-full;
+    }
+
     @media (max-width: 768px) {
         .section-title {
             @apply text-2xl mb-4;
