@@ -41,6 +41,7 @@ export default function Home() {
   const [loading, setLoading] = useState<boolean>(true);
   const [activeTools, setActiveTools] = useState<Tool[]>([]);
   const [activeType, setActiveType] = useState<string>("all");
+  const [categoriesExpanded, setCategoriesExpanded] = useState<boolean>(false);
 
   const searchRef = useRef<HTMLInputElement>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -1358,11 +1359,58 @@ export default function Home() {
                 {/* Categories List */}
                 <div className="md:w-1/4">
                   <div className="bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm p-4 md:p-5 rounded-xl mb-6 sticky top-20 border border-gray-200 dark:border-gray-800 shadow-lg">
-                    <h3 className="text-lg font-bold mb-4 text-gray-800 dark:text-white flex items-center">
-                      <WrenchIcon className="w-5 h-5 mr-2 text-purple-600 dark:text-accent" />{" "}
-                      Categories
-                    </h3>
-                    <div className="max-h-[60vh] overflow-y-auto pr-2 space-y-1">
+                    <div className="flex justify-between items-center mb-4">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-white flex items-center">
+                        <WrenchIcon className="w-5 h-5 mr-2 text-purple-600 dark:text-accent" />{" "}
+                        Categories
+                      </h3>
+                      <button
+                        className="md:hidden bg-gray-100 dark:bg-secondary/30 p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-secondary/50 transition-colors"
+                        onClick={() =>
+                          setCategoriesExpanded(!categoriesExpanded)
+                        }
+                        aria-label={
+                          categoriesExpanded
+                            ? "Collapse categories"
+                            : "Expand categories"
+                        }
+                      >
+                        {categoriesExpanded ? (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-5 h-5"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                            />
+                          </svg>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-5 h-5"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                            />
+                          </svg>
+                        )}
+                      </button>
+                    </div>
+                    <div
+                      className={`max-h-[60vh] overflow-y-auto pr-2 space-y-1 ${!categoriesExpanded && "hidden md:block"}`}
+                    >
                       {categories.map((category) => (
                         <button
                           key={category.id}
@@ -1375,6 +1423,7 @@ export default function Home() {
                             setActiveCategory(category.id);
                             setActiveType("all");
                             setSearchQuery("");
+                            setCategoriesExpanded(false);
                           }}
                         >
                           <span className="mr-2 flex-shrink-0 w-5 h-5">
