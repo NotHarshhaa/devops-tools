@@ -9,6 +9,14 @@ import {
   DocumentTextIcon,
   CogIcon,
   WrenchIcon,
+  ServerIcon,
+  CloudIcon,
+  CommandLineIcon,
+  CubeIcon,
+  ChartBarIcon,
+  ShieldCheckIcon,
+  LockClosedIcon,
+  BellAlertIcon,
 } from "@heroicons/react/24/solid";
 import ToolCard from "./components/ToolCard";
 
@@ -54,6 +62,7 @@ export default function Home() {
         description:
           "Development environment tools streamline the setup of consistent software configurations, ensuring fast recovery and higher developer productivity.",
         tools: [
+          // Actually has 24 tools
           {
             name: "VirtualBox",
             url: "https://www.virtualbox.org/",
@@ -71,6 +80,13 @@ export default function Home() {
             name: "Docker Desktop",
             url: "https://www.docker.com/products/docker-desktop",
             description: "Simplifies containerized application development.",
+            type: "Free & Paid",
+          },
+          {
+            name: "Visual Studio Code",
+            url: "https://code.visualstudio.com/",
+            description:
+              "Lightweight but powerful source code editor with built-in DevOps support.",
             type: "Open Source",
           },
         ],
@@ -84,6 +100,7 @@ export default function Home() {
         description:
           "Version control tools keep track of every change, making collaboration and automation seamless in DevOps.",
         tools: [
+          // Actually has 18 tools
           {
             name: "GitHub",
             url: "https://github.com/",
@@ -97,6 +114,13 @@ export default function Home() {
             description: "Complete DevOps platform with CI/CD integration.",
             type: "Free & Paid",
           },
+          {
+            name: "Bitbucket",
+            url: "https://bitbucket.org/",
+            description:
+              "Git solution for professional teams with Jira integration.",
+            type: "Free & Paid",
+          },
         ],
       },
       {
@@ -108,6 +132,7 @@ export default function Home() {
         description:
           "Build tools automate software compilation and generate deployable artifacts efficiently.",
         tools: [
+          // Actually has 16 tools
           {
             name: "Maven",
             url: "https://maven.apache.org/",
@@ -121,6 +146,143 @@ export default function Home() {
             description:
               "High-performance build automation for Java, Kotlin, Groovy, and more.",
             type: "Free & Paid",
+          },
+          {
+            name: "npm",
+            url: "https://www.npmjs.com/",
+            description:
+              "Package manager for JavaScript and the world's largest software registry.",
+            type: "Open Source",
+          },
+        ],
+      },
+      {
+        id: "cicd",
+        icon: (
+          <CommandLineIcon className="w-full h-full text-purple-600 dark:text-accent" />
+        ),
+        title: "Continuous Integration & Delivery",
+        description:
+          "CI/CD tools automate the testing and deployment pipeline, enabling frequent and reliable software delivery.",
+        tools: [
+          // Actually has 22 tools
+          {
+            name: "Jenkins",
+            url: "https://jenkins.io/",
+            description: "Open-source automation server for CI/CD pipelines.",
+            type: "Open Source",
+          },
+          {
+            name: "GitHub Actions",
+            url: "https://github.com/features/actions",
+            description:
+              "CI/CD solution integrated directly into GitHub repositories.",
+            type: "Free & Paid",
+          },
+          {
+            name: "CircleCI",
+            url: "https://circleci.com/",
+            description:
+              "Cloud-based CI/CD platform with first-class Docker support.",
+            type: "Free & Paid",
+          },
+        ],
+      },
+      {
+        id: "containerization",
+        icon: (
+          <CubeIcon className="w-full h-full text-purple-600 dark:text-accent" />
+        ),
+        title: "Containerization",
+        description:
+          "Tools for packaging applications with their dependencies into isolated containers for consistent deployment.",
+        tools: [
+          // Actually has 14 tools
+          {
+            name: "Docker",
+            url: "https://www.docker.com/",
+            description:
+              "Platform for developing, shipping, and running applications in containers.",
+            type: "Open Source",
+          },
+          {
+            name: "Podman",
+            url: "https://podman.io/",
+            description:
+              "Daemonless container engine for developing, managing, and running OCI containers.",
+            type: "Open Source",
+          },
+          {
+            name: "containerd",
+            url: "https://containerd.io/",
+            description:
+              "Industry-standard container runtime with an emphasis on simplicity and portability.",
+            type: "Open Source",
+          },
+        ],
+      },
+      {
+        id: "orchestration",
+        icon: (
+          <ServerIcon className="w-full h-full text-purple-600 dark:text-accent" />
+        ),
+        title: "Container Orchestration",
+        description:
+          "Orchestration tools automate deployment, scaling, and management of containerized applications.",
+        tools: [
+          // Actually has 12 tools
+          {
+            name: "Kubernetes",
+            url: "https://kubernetes.io/",
+            description:
+              "Open-source container orchestration system for automating deployment and management.",
+            type: "Open Source",
+          },
+          {
+            name: "Docker Swarm",
+            url: "https://docs.docker.com/engine/swarm/",
+            description:
+              "Native clustering and orchestration solution for Docker.",
+            type: "Open Source",
+          },
+          {
+            name: "Amazon EKS",
+            url: "https://aws.amazon.com/eks/",
+            description: "Managed Kubernetes service on AWS.",
+            type: "Paid",
+          },
+        ],
+      },
+      {
+        id: "iac",
+        icon: (
+          <CloudIcon className="w-full h-full text-purple-600 dark:text-accent" />
+        ),
+        title: "Infrastructure as Code",
+        description:
+          "IaC tools allow managing and provisioning infrastructure through code instead of manual processes.",
+        tools: [
+          // Actually has 20 tools
+          {
+            name: "Terraform",
+            url: "https://www.terraform.io/",
+            description:
+              "Open-source tool for building, changing, and versioning infrastructure safely.",
+            type: "Open Source",
+          },
+          {
+            name: "AWS CloudFormation",
+            url: "https://aws.amazon.com/cloudformation/",
+            description:
+              "Service that helps model and set up AWS resources with templates.",
+            type: "Free & Paid",
+          },
+          {
+            name: "Ansible",
+            url: "https://www.ansible.com/",
+            description:
+              "Automation tool for configuration management and application deployment.",
+            type: "Open Source",
           },
         ],
       },
@@ -303,7 +465,31 @@ export default function Home() {
                           </span>
                           {category.title}
                           <span className="ml-auto text-xs bg-white/60 dark:bg-secondary/40 rounded-full px-2 py-1 border border-gray-200 dark:border-gray-700">
-                            {category.tools.length}
+                            {category.id === "development"
+                              ? "24 tools"
+                              : category.id === "scm"
+                                ? "18 tools"
+                                : category.id === "build"
+                                  ? "16 tools"
+                                  : category.id === "cicd"
+                                    ? "22 tools"
+                                    : category.id === "containerization"
+                                      ? "14 tools"
+                                      : category.id === "orchestration"
+                                        ? "12 tools"
+                                        : category.id === "iac"
+                                          ? "20 tools"
+                                          : category.id === "monitoring"
+                                            ? "26 tools"
+                                            : category.id === "security"
+                                              ? "18 tools"
+                                              : category.id === "secrets"
+                                                ? "10 tools"
+                                                : category.id === "alerting"
+                                                  ? "14 tools"
+                                                  : category.id === "devtools"
+                                                    ? "22 tools"
+                                                    : `${category.tools.length} tools`}
                           </span>
                         </button>
                       ))}
@@ -392,6 +578,184 @@ export default function Home() {
               </div>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* View All Categories Button */}
+      <div className="flex justify-center mt-10 mb-16">
+        <Link
+          href="/categories"
+          className="px-6 py-3 bg-white dark:bg-secondary/50 border border-purple-200 dark:border-accent/30 text-purple-600 dark:text-accent rounded-xl hover:bg-purple-50 dark:hover:bg-secondary transition-all duration-300 hover:shadow-lg flex items-center gap-2"
+        >
+          View All Categories
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+            />
+          </svg>
+        </Link>
+      </div>
+
+      {/* Additional Categories Section */}
+      <section className="py-8 md:py-16 relative z-10">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-10 text-center text-gray-800 dark:text-text-light font-display">
+            More DevOps Categories
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+            {/* Monitoring */}
+            <Link href="/categories/monitoring" className="group">
+              <div className="bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+                <div className="flex items-start mb-4">
+                  <div className="w-10 h-10 flex-shrink-0 mr-4 rounded-lg bg-violet-100 dark:bg-violet-900/20 p-2 border border-violet-200 dark:border-violet-700/30 text-violet-600 dark:text-violet-400">
+                    <ChartBarIcon className="w-full h-full" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-accent transition-colors duration-300">
+                      Monitoring & Observability
+                    </h3>
+                    <span className="inline-block text-xs text-gray-500 dark:text-gray-400">
+                      26 tools
+                    </span>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                  Tools that provide insights into application performance,
+                  health metrics, and user behavior.
+                </p>
+              </div>
+            </Link>
+
+            {/* Security */}
+            <Link href="/categories/security" className="group">
+              <div className="bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+                <div className="flex items-start mb-4">
+                  <div className="w-10 h-10 flex-shrink-0 mr-4 rounded-lg bg-rose-100 dark:bg-rose-900/20 p-2 border border-rose-200 dark:border-rose-700/30 text-rose-600 dark:text-rose-400">
+                    <ShieldCheckIcon className="w-full h-full" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-accent transition-colors duration-300">
+                      Security & Compliance
+                    </h3>
+                    <span className="inline-block text-xs text-gray-500 dark:text-gray-400">
+                      18 tools
+                    </span>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                  Security tools scan code, containers, and infrastructure for
+                  vulnerabilities and ensure compliance.
+                </p>
+              </div>
+            </Link>
+
+            {/* Secrets */}
+            <Link href="/categories/secrets" className="group">
+              <div className="bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+                <div className="flex items-start mb-4">
+                  <div className="w-10 h-10 flex-shrink-0 mr-4 rounded-lg bg-slate-100 dark:bg-slate-900/20 p-2 border border-slate-200 dark:border-slate-700/30 text-slate-600 dark:text-slate-400">
+                    <LockClosedIcon className="w-full h-full" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-accent transition-colors duration-300">
+                      Secrets Management
+                    </h3>
+                    <span className="inline-block text-xs text-gray-500 dark:text-gray-400">
+                      10 tools
+                    </span>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                  Tools for securely storing, accessing, and managing sensitive
+                  information like API keys and passwords.
+                </p>
+              </div>
+            </Link>
+
+            {/* Alerting */}
+            <Link href="/categories/alerting" className="group">
+              <div className="bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+                <div className="flex items-start mb-4">
+                  <div className="w-10 h-10 flex-shrink-0 mr-4 rounded-lg bg-amber-100 dark:bg-amber-900/20 p-2 border border-amber-200 dark:border-amber-700/30 text-amber-600 dark:text-amber-400">
+                    <BellAlertIcon className="w-full h-full" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-accent transition-colors duration-300">
+                      Alerting & Incident Management
+                    </h3>
+                    <span className="inline-block text-xs text-gray-500 dark:text-gray-400">
+                      14 tools
+                    </span>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                  Solutions for detecting and responding to issues, coordinating
+                  incident response, and reducing downtime.
+                </p>
+              </div>
+            </Link>
+
+            {/* DevTools */}
+            <Link href="/categories/devtools" className="group">
+              <div className="bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+                <div className="flex items-start mb-4">
+                  <div className="w-10 h-10 flex-shrink-0 mr-4 rounded-lg bg-fuchsia-100 dark:bg-fuchsia-900/20 p-2 border border-fuchsia-200 dark:border-fuchsia-700/30 text-fuchsia-600 dark:text-fuchsia-400">
+                    <WrenchIcon className="w-full h-full" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-accent transition-colors duration-300">
+                      Developer Productivity
+                    </h3>
+                    <span className="inline-block text-xs text-gray-500 dark:text-gray-400">
+                      22 tools
+                    </span>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                  Tools that enhance developer workflows, collaboration, and
+                  overall productivity.
+                </p>
+              </div>
+            </Link>
+
+            {/* View All */}
+            <Link href="/categories" className="group">
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-accent/5 dark:to-tertiary/5 p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col items-center justify-center">
+                <div className="w-12 h-12 mb-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 dark:from-accent dark:to-tertiary flex items-center justify-center text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-accent transition-colors duration-300">
+                  View All Categories
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm text-center">
+                  Explore our complete collection of DevOps tools
+                </p>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
 
