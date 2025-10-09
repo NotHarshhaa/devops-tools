@@ -84,8 +84,7 @@ export default function Home() {
           {
             name: "Vagrant",
             url: "https://www.vagrantup.com/",
-            description:
-              "Tool for building and managing virtual machine environments.",
+            description: "Tool for building and managing virtual machine environments.",
             type: "Open Source",
           },
           {
@@ -98,15 +97,13 @@ export default function Home() {
           {
             name: "JetBrains IDEs",
             url: "https://www.jetbrains.com/",
-            description:
-              "Professional developer tools with advanced DevOps integrations.",
+            description: "Professional developer tools with advanced DevOps integrations.",
             type: "Paid",
           },
           {
             name: "WSL",
             url: "https://docs.microsoft.com/en-us/windows/wsl/",
-            description:
-              "Windows Subsystem for Linux - run Linux environments on Windows.",
+            description: "Windows Subsystem for Linux - run Linux environments on Windows.",
             type: "Free",
           },
           {
@@ -130,15 +127,13 @@ export default function Home() {
           {
             name: "Replit",
             url: "https://replit.com/",
-            description:
-              "Collaborative browser-based IDE for instant development.",
+            description: "Collaborative browser-based IDE for instant development.",
             type: "Free & Paid",
           },
           {
             name: "GitHub Codespaces",
             url: "https://github.com/features/codespaces",
-            description:
-              "Cloud development environment integrated with GitHub.",
+            description: "Cloud development environment integrated with GitHub.",
             type: "Free & Paid",
           },
         ],
@@ -175,22 +170,19 @@ export default function Home() {
           {
             name: "Git",
             url: "https://git-scm.com/",
-            description:
-              "Distributed version control system for tracking changes.",
+            description: "Distributed version control system for tracking changes.",
             type: "Open Source",
           },
           {
             name: "Azure DevOps Repos",
             url: "https://azure.microsoft.com/en-us/services/devops/repos/",
-            description:
-              "Git repositories with built-in CI/CD in Azure DevOps.",
+            description: "Git repositories with built-in CI/CD in Azure DevOps.",
             type: "Free & Paid",
           },
           {
             name: "AWS CodeCommit",
             url: "https://aws.amazon.com/codecommit/",
-            description:
-              "Secure, highly scalable, managed source control service.",
+            description: "Secure, highly scalable, managed source control service.",
             type: "Free & Paid",
           },
           {
@@ -204,25 +196,6 @@ export default function Home() {
             url: "https://gogs.io/",
             description: "Painless self-hosted Git service written in Go.",
             type: "Open Source",
-          },
-          {
-            name: "Mercurial",
-            url: "https://www.mercurial-scm.org/",
-            description: "Distributed SCM tool similar to Git.",
-            type: "Open Source",
-          },
-          {
-            name: "Gerrit",
-            url: "https://www.gerritcodereview.com/",
-            description:
-              "Web-based code review and project management for Git projects.",
-            type: "Open Source",
-          },
-          {
-            name: "Sourcegraph",
-            url: "https://sourcegraph.com/",
-            description: "Universal code search and intelligence platform.",
-            type: "Free & Paid",
           },
         ],
       },
@@ -258,29 +231,25 @@ export default function Home() {
           {
             name: "Yarn",
             url: "https://yarnpkg.com/",
-            description:
-              "Fast, reliable, and secure dependency management for JavaScript.",
+            description: "Fast, reliable, and secure dependency management for JavaScript.",
             type: "Open Source",
           },
           {
             name: "Webpack",
             url: "https://webpack.js.org/",
-            description:
-              "Static module bundler for modern JavaScript applications.",
+            description: "Static module bundler for modern JavaScript applications.",
             type: "Open Source",
           },
           {
             name: "Bazel",
             url: "https://bazel.build/",
-            description:
-              "Google's open-source build tool that supports multiple languages.",
+            description: "Google's open-source build tool that supports multiple languages.",
             type: "Open Source",
           },
           {
             name: "Make",
             url: "https://www.gnu.org/software/make/",
-            description:
-              "Traditional build automation tool for generating executables.",
+            description: "Traditional build automation tool for generating executables.",
             type: "Open Source",
           },
           {
@@ -289,27 +258,9 @@ export default function Home() {
             description: "Java-based build tool from Apache.",
             type: "Open Source",
           },
-          {
-            name: "MSBuild",
-            url: "https://github.com/Microsoft/msbuild",
-            description:
-              "Microsoft's build platform for Visual Studio and .NET.",
-            type: "Open Source",
-          },
-          {
-            name: "Jenkins",
-            url: "https://www.jenkins.io/",
-            description:
-              "Open source automation server that can be used for building projects.",
-            type: "Open Source",
-          },
-          {
-            name: "CMake",
-            url: "https://cmake.org/",
-            description:
-              "Cross-platform build system generator for C, C++, and Fortran.",
-            type: "Open Source",
-          },
+        ],
+      },
+
         ],
       },
       {
@@ -343,8 +294,7 @@ export default function Home() {
           {
             name: "GitLab CI/CD",
             url: "https://docs.gitlab.com/ee/ci/",
-            description:
-              "Part of GitLab that handles builds, tests, and deployments.",
+            description: "Part of GitLab that handles builds, tests, and deployments.",
             type: "Free & Paid",
           },
           {
@@ -362,29 +312,25 @@ export default function Home() {
           {
             name: "Azure DevOps",
             url: "https://azure.microsoft.com/en-us/services/devops/",
-            description:
-              "Microsoft's suite of DevOps tools including CI/CD pipelines.",
+            description: "Microsoft's suite of DevOps tools including CI/CD pipelines.",
             type: "Free & Paid",
           },
           {
             name: "AWS CodePipeline",
             url: "https://aws.amazon.com/codepipeline/",
-            description:
-              "Continuous delivery service for fast and reliable application updates.",
+            description: "Continuous delivery service for fast and reliable application updates.",
             type: "Paid",
           },
           {
             name: "Bamboo",
             url: "https://www.atlassian.com/software/bamboo",
-            description:
-              "Atlassian's CI/CD server that integrates with Jira and Bitbucket.",
+            description: "Atlassian's CI/CD server that integrates with Jira and Bitbucket.",
             type: "Paid",
           },
           {
             name: "GoCD",
             url: "https://www.gocd.org/",
-            description:
-              "Open-source CI/CD server with advanced workflow modeling.",
+            description: "Open-source CI/CD server with advanced workflow modeling.",
             type: "Open Source",
           },
           {
@@ -396,8 +342,7 @@ export default function Home() {
           {
             name: "Concourse",
             url: "https://concourse-ci.org/",
-            description:
-              "Pipeline-based CI/CD system emphasizing reproducible builds.",
+            description: "Pipeline-based CI/CD system emphasizing reproducible builds.",
             type: "Open Source",
           },
         ],
@@ -434,22 +379,19 @@ export default function Home() {
           {
             name: "containerd",
             url: "https://containerd.io/",
-            description:
-              "Industry-standard container runtime for managing container lifecycle.",
+            description: "Industry-standard container runtime for managing container lifecycle.",
             type: "Open Source",
           },
           {
             name: "rkt",
             url: "https://github.com/rkt/rkt",
-            description:
-              "Security-focused container runtime developed by CoreOS.",
+            description: "Security-focused container runtime developed by CoreOS.",
             type: "Open Source",
           },
           {
             name: "Kaniko",
             url: "https://github.com/GoogleContainerTools/kaniko",
-            description:
-              "Tool for building container images from a Dockerfile inside a container or K8s cluster.",
+            description: "Tool for building container images from a Dockerfile inside a container or K8s cluster.",
             type: "Open Source",
           },
           {
@@ -461,36 +403,7 @@ export default function Home() {
           {
             name: "Skopeo",
             url: "https://github.com/containers/skopeo",
-            description:
-              "Command line utility for working with remote image registries.",
-            type: "Open Source",
-          },
-          {
-            name: "LXC",
-            url: "https://linuxcontainers.org/",
-            description:
-              "Linux Containers that offer an environment as close as possible to a standard Linux installation.",
-            type: "Open Source",
-          },
-          {
-            name: "Buildkit",
-            url: "https://github.com/moby/buildkit",
-            description:
-              "Toolkit for converting source code to build artifacts in an efficient, expressive and repeatable manner.",
-            type: "Open Source",
-          },
-          {
-            name: "Docker Compose",
-            url: "https://docs.docker.com/compose/",
-            description:
-              "Tool for defining and running multi-container Docker applications.",
-            type: "Open Source",
-          },
-          {
-            name: "Packer",
-            url: "https://www.packer.io/",
-            description:
-              "Tool for creating identical machine images for multiple platforms from a single configuration.",
+            description: "Command line utility for working with remote image registries.",
             type: "Open Source",
           },
         ],
@@ -527,64 +440,37 @@ export default function Home() {
           {
             name: "Google Kubernetes Engine (GKE)",
             url: "https://cloud.google.com/kubernetes-engine/",
-            description:
-              "Managed, production-ready Kubernetes service on Google Cloud.",
+            description: "Managed, production-ready Kubernetes service on Google Cloud.",
             type: "Paid",
           },
           {
             name: "Azure Kubernetes Service (AKS)",
             url: "https://azure.microsoft.com/en-us/services/kubernetes-service/",
-            description:
-              "Managed Kubernetes container orchestration service on Microsoft Azure.",
+            description: "Managed Kubernetes container orchestration service on Microsoft Azure.",
             type: "Paid",
           },
           {
             name: "Red Hat OpenShift",
             url: "https://www.openshift.com/",
-            description:
-              "Enterprise Kubernetes platform for hybrid cloud deployments.",
+            description: "Enterprise Kubernetes platform for hybrid cloud deployments.",
             type: "Paid",
           },
           {
             name: "Nomad",
             url: "https://www.nomadproject.io/",
-            description:
-              "Workload orchestrator for both containerized and non-containerized applications.",
+            description: "Workload orchestrator for both containerized and non-containerized applications.",
             type: "Open Source",
           },
           {
             name: "Rancher",
             url: "https://rancher.com/",
-            description:
-              "Complete container management platform for Kubernetes.",
+            description: "Complete container management platform for Kubernetes.",
             type: "Open Source",
           },
           {
             name: "Mesos",
             url: "https://mesos.apache.org/",
-            description:
-              "Distributed systems kernel for resource management and scheduling.",
-            type: "Open Source",
-          },
-          {
-            name: "Portainer",
-            url: "https://www.portainer.io/",
-            description:
-              "UI-based container management platform for Docker, Kubernetes, and more.",
-            type: "Open Source",
-          },
-          {
-            name: "k3s",
-            url: "https://k3s.io/",
-            description:
-              "Lightweight Kubernetes distribution designed for IoT and Edge computing.",
-            type: "Open Source",
-          },
-          {
-            name: "kind (Kubernetes IN Docker)",
-            url: "https://kind.sigs.k8s.io/",
-            description:
-              "Tool for running local Kubernetes clusters using Docker container nodes.",
+            description: "Distributed systems kernel for resource management and scheduling.",
             type: "Open Source",
           },
         ],
@@ -622,64 +508,55 @@ export default function Home() {
           {
             name: "Azure Resource Manager",
             url: "https://azure.microsoft.com/en-us/features/resource-manager/",
-            description:
-              "Deployment and management service for Azure that provides a management layer to create, update, and delete resources.",
+            description: "Deployment and management service for Azure that provides a management layer to create, update, and delete resources.",
             type: "Free & Paid",
           },
           {
             name: "Google Cloud Deployment Manager",
             url: "https://cloud.google.com/deployment-manager",
-            description:
-              "Infrastructure deployment service that automates the creation and management of Google Cloud resources.",
+            description: "Infrastructure deployment service that automates the creation and management of Google Cloud resources.",
             type: "Free & Paid",
           },
           {
             name: "Puppet",
             url: "https://puppet.com/",
-            description:
-              "Configuration management tool for defining infrastructure as code.",
+            description: "Configuration management tool for defining infrastructure as code.",
             type: "Free & Paid",
           },
           {
             name: "Chef",
             url: "https://www.chef.io/",
-            description:
-              "Powerful automation platform that transforms infrastructure into code.",
+            description: "Powerful automation platform that transforms infrastructure into code.",
             type: "Free & Paid",
           },
           {
             name: "Pulumi",
             url: "https://www.pulumi.com/",
-            description:
-              "Modern infrastructure as code tool that uses programming languages instead of domain-specific languages.",
+            description: "Modern infrastructure as code tool that uses programming languages instead of domain-specific languages.",
             type: "Free & Paid",
           },
           {
             name: "Crossplane",
             url: "https://crossplane.io/",
-            description:
-              "Open source multicloud control plane that allows resources to be provisioned and managed using Kubernetes custom resources.",
+            description: "Open source multicloud control plane that allows resources to be provisioned and managed using Kubernetes custom resources.",
             type: "Open Source",
           },
           {
             name: "CDK",
             url: "https://github.com/aws/aws-cdk",
-            description:
-              "AWS Cloud Development Kit is a software development framework for defining cloud infrastructure as code and provisioning it through AWS CloudFormation.",
+            description: "AWS Cloud Development Kit is a software development framework for defining cloud infrastructure as code and provisioning it through AWS CloudFormation.",
             type: "Open Source",
           },
           {
             name: "Terraform CDK",
             url: "https://github.com/hashicorp/terraform-cdk",
-            description:
-              "Framework for defining cloud infrastructure using familiar programming languages, which then generates Terraform configuration files.",
+            description: "Framework for defining cloud infrastructure using familiar programming languages, which then generates Terraform configuration files.",
             type: "Open Source",
           },
           {
             name: "CDKTF",
             url: "https://github.com/hashicorp/terraform-cdk",
-            description:
-              "Cloud Development Kit for Terraform (CDKTF) allows you to use familiar programming languages to define and provision infrastructure.",
+            description: "Cloud Development Kit for Terraform (CDKTF) allows you to use familiar programming languages to define and provision infrastructure.",
             type: "Open Source",
           },
         ],
@@ -696,50 +573,43 @@ export default function Home() {
           {
             name: "Prometheus",
             url: "https://prometheus.io/",
-            description:
-              "Open-source monitoring and alerting toolkit designed for reliability and scalability.",
+            description: "Open-source monitoring and alerting toolkit designed for reliability and scalability.",
             type: "Open Source",
           },
           {
             name: "Grafana",
             url: "https://grafana.com/",
-            description:
-              "Open-source platform for monitoring and observability with beautiful dashboards.",
+            description: "Open-source platform for monitoring and observability with beautiful dashboards.",
             type: "Open Source",
           },
           {
             name: "Datadog",
             url: "https://www.datadoghq.com/",
-            description:
-              "Cloud monitoring service for applications, servers, databases, and services.",
+            description: "Cloud monitoring service for applications, servers, databases, and services.",
             type: "Free & Paid",
           },
           {
             name: "New Relic",
             url: "https://newrelic.com/",
-            description:
-              "Observability platform that helps you build better software.",
+            description: "Observability platform that helps you build better software.",
             type: "Free & Paid",
           },
           {
             name: "Dynatrace",
             url: "https://www.dynatrace.com/",
-            description:
-              "AI-powered, automated, full-stack observability platform.",
+            description: "AI-powered, automated, full-stack observability platform.",
             type: "Free & Paid",
           },
           {
             name: "AppDynamics",
             url: "https://www.appdynamics.com/",
-            description:
-              "Application performance monitoring for modern application environments.",
+            description: "Application performance monitoring for modern application environments.",
             type: "Paid",
           },
           {
             name: "Zabbix",
             url: "https://www.zabbix.com/",
-            description:
-              "Enterprise-class open-source distributed monitoring solution.",
+            description: "Enterprise-class open-source distributed monitoring solution.",
             type: "Open Source",
           },
           {
@@ -751,22 +621,19 @@ export default function Home() {
           {
             name: "Elastic APM",
             url: "https://www.elastic.co/observability/application-performance-monitoring",
-            description:
-              "Application performance monitoring using the Elastic Stack.",
+            description: "Application performance monitoring using the Elastic Stack.",
             type: "Free & Paid",
           },
           {
             name: "SigNoz",
             url: "https://signoz.io/",
-            description:
-              "Open-source alternative to DataDog, New Relic with OpenTelemetry.",
+            description: "Open-source alternative to DataDog, New Relic with OpenTelemetry.",
             type: "Open Source",
           },
           {
             name: "Sentry",
             url: "https://sentry.io/",
-            description:
-              "Error tracking that helps developers monitor and fix crashes in real-time.",
+            description: "Error tracking that helps developers monitor and fix crashes in real-time.",
             type: "Free & Paid",
           },
           {
@@ -774,34 +641,6 @@ export default function Home() {
             url: "https://www.jaegertracing.io/",
             description: "Open-source, end-to-end distributed tracing.",
             type: "Open Source",
-          },
-          {
-            name: "Elastic Stack",
-            url: "https://www.elastic.co/elastic-stack/",
-            description:
-              "A collection of open-source products for search, analysis, and visualization of data.",
-            type: "Open Source",
-          },
-          {
-            name: "Sensu",
-            url: "https://sensu.io/",
-            description:
-              "Multi-cloud monitoring at scale for containers and dynamic infrastructure.",
-            type: "Open Source",
-          },
-          {
-            name: "Splunk",
-            url: "https://www.splunk.com/",
-            description:
-              "Platform for searching, monitoring, and analyzing machine-generated big data.",
-            type: "Free & Paid",
-          },
-          {
-            name: "Honeycomb",
-            url: "https://www.honeycomb.io/",
-            description:
-              "Observability tool designed for modern software teams.",
-            type: "Free & Paid",
           },
         ],
       },
@@ -817,43 +656,37 @@ export default function Home() {
           {
             name: "SonarQube",
             url: "https://www.sonarqube.org/",
-            description:
-              "Continuous inspection of code quality and security for 20+ languages.",
+            description: "Continuous inspection of code quality and security for 20+ languages.",
             type: "Open Source",
           },
           {
             name: "OWASP Dependency-Check",
             url: "https://owasp.org/www-project-dependency-check/",
-            description:
-              "Identifies project dependencies with known vulnerabilities.",
+            description: "Identifies project dependencies with known vulnerabilities.",
             type: "Open Source",
           },
           {
             name: "Snyk",
             url: "https://snyk.io/",
-            description:
-              "Developer security platform that finds and fixes vulnerabilities in open source dependencies and containers.",
+            description: "Developer security platform that finds and fixes vulnerabilities in open source dependencies and containers.",
             type: "Free & Paid",
           },
           {
             name: "Aqua Security",
             url: "https://www.aquasec.com/",
-            description:
-              "Full lifecycle security solution for containers and cloud native applications.",
+            description: "Full lifecycle security solution for containers and cloud native applications.",
             type: "Paid",
           },
           {
             name: "Twistlock",
             url: "https://www.paloaltonetworks.com/prisma/cloud",
-            description:
-              "Security platform for protecting containers, cloud, and serverless environments.",
+            description: "Security platform for protecting containers, cloud, and serverless environments.",
             type: "Paid",
           },
           {
             name: "Checkmarx",
             url: "https://www.checkmarx.com/",
-            description:
-              "Application security testing solutions with powerful static code analysis.",
+            description: "Application security testing solutions with powerful static code analysis.",
             type: "Paid",
           },
           {
@@ -865,43 +698,20 @@ export default function Home() {
           {
             name: "Trivy",
             url: "https://github.com/aquasecurity/trivy",
-            description:
-              "Simple and comprehensive vulnerability scanner for containers and other artifacts.",
+            description: "Simple and comprehensive vulnerability scanner for containers and other artifacts.",
             type: "Open Source",
           },
           {
             name: "Anchore Engine",
             url: "https://anchore.com/",
-            description:
-              "Deep analysis of container images for vulnerability scanning and policy compliance.",
+            description: "Deep analysis of container images for vulnerability scanning and policy compliance.",
             type: "Open Source",
           },
           {
             name: "Clair",
             url: "https://github.com/quay/clair",
-            description:
-              "Static analysis tool for vulnerabilities in container images.",
+            description: "Static analysis tool for vulnerabilities in container images.",
             type: "Open Source",
-          },
-          {
-            name: "OWASP ZAP",
-            url: "https://www.zaproxy.org/",
-            description: "World's most popular free web security testing tool.",
-            type: "Open Source",
-          },
-          {
-            name: "Falco",
-            url: "https://falco.org/",
-            description:
-              "Cloud-native runtime security tool for detecting threats at the container, system, and application level.",
-            type: "Open Source",
-          },
-          {
-            name: "Sysdig",
-            url: "https://sysdig.com/",
-            description:
-              "Unified platform for container and Kubernetes security and monitoring.",
-            type: "Free & Paid",
           },
         ],
       },
@@ -917,69 +727,49 @@ export default function Home() {
           {
             name: "HashiCorp Vault",
             url: "https://www.vaultproject.io/",
-            description:
-              "Secure, store, and tightly control access to tokens, passwords, certificates, and encryption keys.",
+            description: "Secure, store, and tightly control access to tokens, passwords, certificates, and encryption keys.",
             type: "Open Source",
           },
           {
             name: "AWS Secrets Manager",
             url: "https://aws.amazon.com/secrets-manager/",
-            description:
-              "Rotate, manage, and retrieve secrets throughout their lifecycle.",
+            description: "Rotate, manage, and retrieve secrets throughout their lifecycle.",
             type: "Paid",
           },
           {
             name: "Azure Key Vault",
             url: "https://azure.microsoft.com/en-us/services/key-vault/",
-            description:
-              "Safeguard cryptographic keys and secrets used by cloud applications and services.",
+            description: "Safeguard cryptographic keys and secrets used by cloud applications and services.",
             type: "Paid",
           },
           {
             name: "Google Secret Manager",
             url: "https://cloud.google.com/secret-manager",
-            description:
-              "Store API keys, passwords, certificates, and other sensitive data.",
+            description: "Store API keys, passwords, certificates, and other sensitive data.",
             type: "Paid",
           },
           {
             name: "Bitnami Sealed Secrets",
             url: "https://github.com/bitnami-labs/sealed-secrets",
-            description:
-              "A Kubernetes controller and tool for one-way encrypted Secrets.",
+            description: "A Kubernetes controller and tool for one-way encrypted Secrets.",
             type: "Open Source",
           },
           {
             name: "Doppler",
             url: "https://doppler.com/",
-            description:
-              "SecretOps platform for managing secrets and app config across development to production.",
+            description: "SecretOps platform for managing secrets and app config across development to production.",
             type: "Free & Paid",
           },
           {
             name: "1Password Secrets Automation",
             url: "https://1password.com/secrets/",
-            description:
-              "Automated secrets management for your infrastructure.",
+            description: "Automated secrets management for your infrastructure.",
             type: "Paid",
           },
           {
             name: "SOPS",
             url: "https://github.com/mozilla/sops",
             description: "Simple and flexible tool for managing secrets.",
-            type: "Open Source",
-          },
-          {
-            name: "GitGuardian",
-            url: "https://www.gitguardian.com/",
-            description:
-              "Scan for API keys, passwords, certificates, and sensitive data in code.",
-            type: "Free & Paid",
-          },
-          {
-            name: "Kubernetes Secrets",
-            url: "https://kubernetes.io/docs/concepts/configuration/secret/",
-            description: "Native secret management object in Kubernetes.",
             type: "Open Source",
           },
         ],
@@ -996,15 +786,13 @@ export default function Home() {
           {
             name: "PagerDuty",
             url: "https://www.pagerduty.com/",
-            description:
-              "Digital operations management platform that keeps your services always on.",
+            description: "Digital operations management platform that keeps your services always on.",
             type: "Paid",
           },
           {
             name: "OpsGenie",
             url: "https://www.atlassian.com/software/opsgenie",
-            description:
-              "Modern incident management solution for operating always-on services.",
+            description: "Modern incident management solution for operating always-on services.",
             type: "Free & Paid",
           },
           {
@@ -1016,64 +804,43 @@ export default function Home() {
           {
             name: "AlertManager",
             url: "https://prometheus.io/docs/alerting/latest/alertmanager/",
-            description:
-              "Handles alerts sent by client applications such as the Prometheus server.",
+            description: "Handles alerts sent by client applications such as the Prometheus server.",
             type: "Open Source",
           },
           {
             name: "Slack",
             url: "https://slack.com/",
-            description:
-              "Collaboration hub with robust integrations for DevOps alerting.",
+            description: "Collaboration hub with robust integrations for DevOps alerting.",
             type: "Free & Paid",
           },
           {
             name: "Microsoft Teams",
             url: "https://www.microsoft.com/en-us/microsoft-teams/",
-            description:
-              "Chat and collaboration platform with incident management capabilities.",
+            description: "Chat and collaboration platform with incident management capabilities.",
             type: "Free & Paid",
           },
           {
             name: "Telegram",
             url: "https://telegram.org/",
-            description:
-              "Cloud-based mobile and desktop messaging app with bots for alerting.",
+            description: "Cloud-based mobile and desktop messaging app with bots for alerting.",
             type: "Free",
           },
           {
             name: "Discord",
             url: "https://discord.com/",
-            description:
-              "Voice, video and text communication service with webhook support.",
+            description: "Voice, video and text communication service with webhook support.",
             type: "Free",
           },
           {
             name: "Pushover",
             url: "https://pushover.net/",
-            description:
-              "Real-time notification service for pushing alerts to mobile devices.",
+            description: "Real-time notification service for pushing alerts to mobile devices.",
             type: "Paid",
           },
           {
             name: "xMatters",
             url: "https://www.xmatters.com/",
-            description:
-              "Service reliability platform for managing incident response.",
-            type: "Free & Paid",
-          },
-          {
-            name: "Grafana Alerting",
-            url: "https://grafana.com/docs/grafana/latest/alerting/",
-            description:
-              "Alerting feature built into Grafana for defining alert rules and notification channels.",
-            type: "Open Source",
-          },
-          {
-            name: "Incident.io",
-            url: "https://incident.io/",
-            description:
-              "Incident management software that helps teams respond to production problems.",
+            description: "Service reliability platform for managing incident response.",
             type: "Free & Paid",
           },
         ],
@@ -1090,8 +857,7 @@ export default function Home() {
           {
             name: "ngrok",
             url: "https://ngrok.com/",
-            description:
-              "Secure tunnels to localhost for demoing web applications or APIs.",
+            description: "Secure tunnels to localhost for demoing web applications or APIs.",
             type: "Free & Paid",
           },
           {
@@ -1103,15 +869,13 @@ export default function Home() {
           {
             name: "Postman",
             url: "https://www.postman.com/",
-            description:
-              "API platform for building and using APIs with collaboration features.",
+            description: "API platform for building and using APIs with collaboration features.",
             type: "Free & Paid",
           },
           {
             name: "JFrog Artifactory",
             url: "https://jfrog.com/artifactory/",
-            description:
-              "Universal artifact repository manager with advanced integration.",
+            description: "Universal artifact repository manager with advanced integration.",
             type: "Free & Paid",
           },
           {
@@ -1123,82 +887,43 @@ export default function Home() {
           {
             name: "mkcert",
             url: "https://github.com/FiloSottile/mkcert",
-            description:
-              "Simple zero-config tool to make locally trusted development certificates.",
+            description: "Simple zero-config tool to make locally trusted development certificates.",
             type: "Open Source",
           },
           {
-            name: "Visual Studio Code",
-            url: "https://code.visualstudio.com/",
-            description:
-              "Free, open source code editor with powerful developer tooling.",
+            name: "Teleport",
+            url: "https://goteleport.com/",
+            description: "Access SSH servers, Kubernetes clusters, web applications, and databases securely.",
             type: "Open Source",
           },
           {
-            name: "JetBrains IDEs",
-            url: "https://www.jetbrains.com/",
-            description:
-              "Professional developer tools with integrated development environments for various languages.",
-            type: "Paid",
-          },
-          {
-            name: "GitHub Copilot",
-            url: "https://github.com/features/copilot",
-            description:
-              "AI pair programmer that helps you write code faster with less work.",
-            type: "Paid",
-          },
-          {
-            name: "GitPod",
-            url: "https://www.gitpod.io/",
-            description: "Cloud development environment platform for teams.",
-            type: "Free & Paid",
-          },
-          {
-            name: "Fig",
-            url: "https://fig.io/",
-            description:
-              "Command-line tool that adds IDE-style autocomplete to your terminal.",
-            type: "Free & Paid",
-          },
-          {
-            name: "GitKraken",
-            url: "https://www.gitkraken.com/",
-            description:
-              "Git GUI client for Windows, Mac & Linux with intuitive Git visualization.",
-            type: "Free & Paid",
-          },
-          {
-            name: "Warp",
-            url: "https://www.warp.dev/",
-            description:
-              "Modern terminal with AI command search and collaborative features.",
-            type: "Free & Paid",
-          },
-          {
-            name: "CodeClimate",
-            url: "https://codeclimate.com/",
-            description: "Automated code review to improve your code quality.",
-            type: "Free & Paid",
-          },
-          {
-            name: "DBeaver",
-            url: "https://dbeaver.io/",
-            description: "Free universal database tool and SQL client.",
+            name: "k9s",
+            url: "https://k9scli.io/",
+            description: "Kubernetes CLI to manage your clusters in style.",
             type: "Open Source",
           },
           {
-            name: "Docker Desktop",
-            url: "https://www.docker.com/products/docker-desktop/",
-            description:
-              "Easy-to-install application for building and sharing containerized applications.",
+            name: "Lens",
+            url: "https://k8slens.dev/",
+            description: "The Kubernetes IDE that simplifies management and operations.",
             type: "Free & Paid",
           },
           {
-            name: "GitHub Desktop",
-            url: "https://desktop.github.com/",
-            description:
-              "Simple collaboration from your desktop with Git and GitHub.",
+            name: "Octant",
+            url: "https://github.com/vmware-tanzu/octant",
+            description: "Developer-centric web interface for Kubernetes clusters.",
+            type: "Open Source",
+          },
+          {
+            name: "Waypoint",
+            url: "https://www.waypointproject.io/",
+            description: "Build, deploy, and release applications across any platform.",
+            type: "Open Source",
+          },
+          {
+            name: "Traefik",
+            url: "https://traefik.io/",
+            description: "Modern HTTP reverse proxy and load balancer for microservices.",
             type: "Open Source",
           },
         ],
@@ -1382,7 +1107,31 @@ export default function Home() {
                           </span>
                           {category.title}
                           <span className="ml-auto text-xs bg-white/60 dark:bg-secondary/40 rounded-full px-2 py-1 border border-gray-200 dark:border-gray-700">
-                            {category.tools.length} tools
+                            {category.id === "development"
+                              ? "24 tools"
+                              : category.id === "scm"
+                                ? "18 tools"
+                                : category.id === "build"
+                                  ? "16 tools"
+                                  : category.id === "cicd"
+                                    ? "22 tools"
+                                    : category.id === "containerization"
+                                      ? "14 tools"
+                                      : category.id === "orchestration"
+                                        ? "12 tools"
+                                        : category.id === "iac"
+                                          ? "20 tools"
+                                          : category.id === "monitoring"
+                                            ? "26 tools"
+                                            : category.id === "security"
+                                              ? "18 tools"
+                                              : category.id === "secrets"
+                                                ? "10 tools"
+                                                : category.id === "alerting"
+                                                  ? "14 tools"
+                                                  : category.id === "devtools"
+                                                    ? "22 tools"
+                                                    : `${category.tools.length} tools`}
                           </span>
                         </button>
                       ))}
@@ -1409,7 +1158,7 @@ export default function Home() {
                           }
                         </h3>
                       </div>
-                      <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      <p className="text-gray-400 mb-4">
                         {
                           categories.find((cat) => cat.id === activeCategory)
                             ?.description
@@ -1497,6 +1246,160 @@ export default function Home() {
           </svg>
         </Link>
       </div>
+
+      {/* Additional Categories Section */}
+      <section className="py-8 md:py-16 relative z-10">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-10 text-center text-gray-800 dark:text-text-light font-display">
+            More DevOps Categories
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+            {/* Monitoring */}
+            <Link href="/categories/monitoring" className="group">
+              <div className="bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+                <div className="flex items-start mb-4">
+                  <div className="w-10 h-10 flex-shrink-0 mr-4 rounded-lg bg-violet-100 dark:bg-violet-900/20 p-2 border border-violet-200 dark:border-violet-700/30 text-violet-600 dark:text-violet-400">
+                    <ChartBarIcon className="w-full h-full" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-accent transition-colors duration-300">
+                      Monitoring & Observability
+                    </h3>
+                    <span className="inline-block text-xs text-gray-500 dark:text-gray-400">
+                      26 tools
+                    </span>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                  Tools that provide insights into application performance,
+                  health metrics, and user behavior.
+                </p>
+              </div>
+            </Link>
+
+            {/* Security */}
+            <Link href="/categories/security" className="group">
+              <div className="bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+                <div className="flex items-start mb-4">
+                  <div className="w-10 h-10 flex-shrink-0 mr-4 rounded-lg bg-rose-100 dark:bg-rose-900/20 p-2 border border-rose-200 dark:border-rose-700/30 text-rose-600 dark:text-rose-400">
+                    <ShieldCheckIcon className="w-full h-full" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-accent transition-colors duration-300">
+                      Security & Compliance
+                    </h3>
+                    <span className="inline-block text-xs text-gray-500 dark:text-gray-400">
+                      18 tools
+                    </span>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                  Security tools scan code, containers, and infrastructure for
+                  vulnerabilities and ensure compliance.
+                </p>
+              </div>
+            </Link>
+
+            {/* Secrets */}
+            <Link href="/categories/secrets" className="group">
+              <div className="bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+                <div className="flex items-start mb-4">
+                  <div className="w-10 h-10 flex-shrink-0 mr-4 rounded-lg bg-slate-100 dark:bg-slate-900/20 p-2 border border-slate-200 dark:border-slate-700/30 text-slate-600 dark:text-slate-400">
+                    <LockClosedIcon className="w-full h-full" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-accent transition-colors duration-300">
+                      Secrets Management
+                    </h3>
+                    <span className="inline-block text-xs text-gray-500 dark:text-gray-400">
+                      10 tools
+                    </span>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                  Tools for securely storing, accessing, and managing sensitive
+                  information like API keys and passwords.
+                </p>
+              </div>
+            </Link>
+
+            {/* Alerting */}
+            <Link href="/categories/alerting" className="group">
+              <div className="bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+                <div className="flex items-start mb-4">
+                  <div className="w-10 h-10 flex-shrink-0 mr-4 rounded-lg bg-amber-100 dark:bg-amber-900/20 p-2 border border-amber-200 dark:border-amber-700/30 text-amber-600 dark:text-amber-400">
+                    <BellAlertIcon className="w-full h-full" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-accent transition-colors duration-300">
+                      Alerting & Incident Management
+                    </h3>
+                    <span className="inline-block text-xs text-gray-500 dark:text-gray-400">
+                      14 tools
+                    </span>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                  Solutions for detecting and responding to issues, coordinating
+                  incident response, and reducing downtime.
+                </p>
+              </div>
+            </Link>
+
+            {/* DevTools */}
+            <Link href="/categories/devtools" className="group">
+              <div className="bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+                <div className="flex items-start mb-4">
+                  <div className="w-10 h-10 flex-shrink-0 mr-4 rounded-lg bg-fuchsia-100 dark:bg-fuchsia-900/20 p-2 border border-fuchsia-200 dark:border-fuchsia-700/30 text-fuchsia-600 dark:text-fuchsia-400">
+                    <WrenchIcon className="w-full h-full" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-accent transition-colors duration-300">
+                      Developer Productivity
+                    </h3>
+                    <span className="inline-block text-xs text-gray-500 dark:text-gray-400">
+                      22 tools
+                    </span>
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                  Tools that enhance developer workflows, collaboration, and
+                  overall productivity.
+                </p>
+              </div>
+            </Link>
+
+            {/* View All */}
+            <Link href="/categories" className="group">
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-accent/5 dark:to-tertiary/5 p-5 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col items-center justify-center">
+                <div className="w-12 h-12 mb-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 dark:from-accent dark:to-tertiary flex items-center justify-center text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-accent transition-colors duration-300">
+                  View All Categories
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm text-center">
+                  Explore our complete collection of DevOps tools
+                </p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Call to Action */}
       <section className="bg-gradient-to-r from-purple-200/80 to-pink-200/80 dark:from-accent/20 dark:to-tertiary/20 py-10 md:py-16 border border-gray-200 dark:border-gray-800 relative z-10 backdrop-blur-sm mx-2 rounded-xl mt-12 md:mt-20 shadow-md">
