@@ -364,6 +364,7 @@ Monitoring & observability tools **track system health, performance, and securit
 
 ### 🔥 **Best Monitoring & Observability Platforms**  
 
+🔹 **[KubeStellar Console](https://console.kubestellar.io)** (Open Source) – An **AI-powered multi-cluster Kubernetes dashboard** with real-time observability, GPU monitoring, and 20+ CNCF integrations (Argo, Kyverno, Prometheus, Grafana, Istio, Flux, Falco). CNCF Sandbox project (Apache 2.0).  
 🔹 **[Prometheus](https://prometheus.io/)** (Open Source) – A **highly scalable monitoring and alerting toolkit**, commonly used in Kubernetes environments.  
 🔹 **[Thanos](https://thanos.io/)** (Open Source) – **Extends Prometheus** with long-term storage, high availability, and multi-cluster monitoring.  
 🔹 **[Cilium](https://cilium.io/)** (Open Source & Enterprise) – **eBPF-powered observability, security, and networking** for cloud-native workloads.  
