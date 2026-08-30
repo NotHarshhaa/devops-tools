@@ -481,7 +481,7 @@ Test automation is a **key pillar of CI/CD**, ensuring **faster, reliable, and s
 
 ### 🛠️ **Best Test Automation & Performance Testing Tools**  
 
-🔹 **[Agent QA](https://github.com/vostride/agent-qa)** (Source Available) – CLI and MCP tool for natural-language web and mobile testing with replayable evidence; FSL-1.1-ALv2, converting to Apache-2.0 after two years.<br>
+🔹 **[Agent QA](https://github.com/vostride/agent-qa)** (Source Available) – CLI and MCP tool for natural-language web and mobile testing with replayable evidence; each FSL-1.1-ALv2 version becomes Apache-2.0 on the second anniversary of its availability. Permitted use has no Agent QA software fee; configured model, browser, or device providers may charge separately.<br>
 🔹 **[Selenium](https://www.selenium.dev/)** (Open Source) – **Industry-standard tool** for automating web browsers across different platforms.  
 🔹 **[UFT (Unified Functional Testing)](https://software.microfocus.com/software/uft)** (Enterprise) – **A commercial functional testing tool** supporting various automation frameworks.  
 🔹 **[Appium](http://appium.io/)** (Open Source) – **A leading mobile automation tool** for testing native, mobile web, and hybrid apps.  
