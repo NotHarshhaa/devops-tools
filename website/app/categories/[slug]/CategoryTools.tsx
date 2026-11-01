@@ -1,160 +1,67 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import {
-  RocketLaunchIcon,
-  ArrowLeftIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/solid";
-import { FaGithub, FaSearch, FaTimes } from "react-icons/fa";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
+import { FaSearch, FaTimes } from "react-icons/fa";
 import ToolCard from "../../components/ToolCard";
+import CategoryIcon from "../../components/CategoryIcon";
+import {
+  getCategory,
+  getCategoryNeighbours,
+  TOOL_TYPES,
+} from "@/lib/data";
 
-interface Tool {
-  name: string;
-  url: string;
-  description: string;
-  type: string;
-}
+export default function CategoryTools({ categoryId }: { categoryId: string }) {
+  const category = getCategory(categoryId)!;
+  const { prev, next } = getCategoryNeighbours(categoryId);
 
-export default function DevelopmentCategoryPage() {
-  const [loading, setLoading] = useState<boolean>(true);
   const [searchQuery, setSearchQuery] = useState("");
-  const [tools, setTools] = useState<Tool[]>([]);
-  const [filteredTools, setFilteredTools] = useState<Tool[]>([]);
-  const [activeType, setActiveType] = useState<string>("all");
-  const [toolTypes, setToolTypes] = useState<string[]>([]);
+  const [activeType, setActiveType] = useState("all");
 
-  useEffect(() => {
-    // Simulating data fetching
-    const data: Tool[] = [
-      {
-        name: "VirtualBox",
-        url: "https://www.virtualbox.org/",
-        description:
-          "Enterprise-grade virtualization for x86 and AMD64/Intel64 systems.",
-        type: "Open Source",
-      },
-      {
-        name: "QEMU",
-        url: "https://www.qemu.org/",
-        description: "Open-source machine emulator and virtualizer.",
-        type: "Open Source",
-      },
-      {
-        name: "Docker Desktop",
-        url: "https://www.docker.com/products/docker-desktop",
-        description: "Simplifies containerized application development.",
-        type: "Free & Paid",
-      },
-      {
-        name: "Vagrant",
-        url: "https://www.vagrantup.com/",
-        description: "Tool for building and managing virtual machine environments.",
-        type: "Open Source",
-      },
-      {
-        name: "Visual Studio Code",
-        url: "https://code.visualstudio.com/",
-        description: "Lightweight but powerful source code editor with built-in DevOps support.",
-        type: "Open Source",
-      },
-      {
-        name: "JetBrains IDEs",
-        url: "https://www.jetbrains.com/",
-        description: "Professional developer tools with advanced DevOps integrations.",
-        type: "Paid",
-      },
-      {
-        name: "WSL",
-        url: "https://docs.microsoft.com/en-us/windows/wsl/",
-        description: "Windows Subsystem for Linux - run Linux environments on Windows.",
-        type: "Free",
-      },
-      {
-        name: "Multipass",
-        url: "https://multipass.run/",
-        description: "Lightweight VM manager for Linux, Windows and macOS.",
-        type: "Open Source",
-      },
-      {
-        name: "Gitpod",
-        url: "https://www.gitpod.io/",
-        description: "Cloud development environments for teams.",
-        type: "Free & Paid",
-      },
-      {
-        name: "CodeSandbox",
-        url: "https://codesandbox.io/",
-        description: "Online code editor and development environment.",
-        type: "Free & Paid",
-      },
-      {
-        name: "Replit",
-        url: "https://replit.com/",
-        description: "Collaborative browser-based IDE for instant development.",
-        type: "Free & Paid",
-      },
-      {
-        name: "GitHub Codespaces",
-        url: "https://github.com/features/codespaces",
-        description: "Cloud development environment integrated with GitHub.",
-        type: "Free & Paid",
-      },
-    ];
+  const categoryTypes = useMemo(
+    () =>
+      TOOL_TYPES.filter(
+        (type) =>
+          type === "all" || category.tools.some((tool) => tool.type === type),
+      ),
+    [category],
+  );
 
-    setTools(data);
-    setFilteredTools(data);
-
-    // Get unique tool types
-    const types = new Set<string>();
-    data.forEach((tool) => {
-      types.add(tool.type);
-    });
-    setToolTypes(["all", ...Array.from(types)].sort());
-
-    setLoading(false);
-  }, []);
-
-  // Filter tools based on search and type
-  useEffect(() => {
-    let filtered = [...tools];
-
-    // Apply search filter
-    if (searchQuery.trim()) {
-      filtered = filtered.filter(
-        (tool) =>
-          tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          tool.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          tool.type.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
-
-    // Apply type filter
-    if (activeType !== "all") {
-      filtered = filtered.filter((tool) => tool.type === activeType);
-    }
-
-    setFilteredTools(filtered);
-  }, [searchQuery, activeType, tools]);
+  const filteredTools = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    return category.tools.filter(
+      (tool) =>
+        (activeType === "all" || tool.type === activeType) &&
+        (!query ||
+          tool.name.toLowerCase().includes(query) ||
+          tool.description.toLowerCase().includes(query) ||
+          tool.type.toLowerCase().includes(query)),
+    );
+  }, [category, searchQuery, activeType]);
 
   return (
     <div className="pt-20 relative">
       {/* Hero Section */}
-      <section className="relative py-10 md:py-20 mb-6 md:mb-12 z-10 mx-2 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 dark:from-accent dark:via-purple-600 dark:to-tertiary rounded-3xl overflow-hidden">
+      <section
+        className={`relative py-10 md:py-20 mb-6 md:mb-12 z-10 mx-2 ${category.color} rounded-3xl overflow-hidden`}
+      >
         <div className="container mx-auto px-4 relative">
           <div className="text-center max-w-4xl mx-auto">
             <div className="flex justify-center mb-3 md:mb-5">
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/20 backdrop-blur-sm p-4 flex items-center justify-center">
-                <RocketLaunchIcon className="w-full h-full text-white" />
+                <CategoryIcon icon={category.icon} className="w-full h-full text-white" />
               </div>
             </div>
             <h1 className="text-2xl md:text-5xl font-bold mb-2 md:mb-4 font-display text-white">
-              Development Environment Tools
+              {category.title}
             </h1>
             <p className="text-sm md:text-lg mb-4 md:mb-6 max-w-3xl mx-auto text-white/90">
-              Development environment tools streamline the setup of consistent software configurations, ensuring fast recovery and higher developer productivity.
+              {category.description}
             </p>
+            <div className="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full">
+              {category.tools.length} {category.tools.length === 1 ? "tool" : "tools"}
+            </div>
           </div>
         </div>
       </section>
@@ -170,6 +77,7 @@ export default function DevelopmentCategoryPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search for tools..."
+                  aria-label="Search tools in this category"
                   className="w-full py-3 px-12 rounded-xl bg-white dark:bg-secondary/50 text-gray-800 dark:text-text-light border border-gray-200 dark:border-transparent focus:ring-2 focus:ring-accent focus:outline-none"
                 />
                 <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
@@ -177,6 +85,7 @@ export default function DevelopmentCategoryPage() {
                   <button
                     onClick={() => setSearchQuery("")}
                     className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-800 dark:hover:text-gray-300"
+                    aria-label="Clear search"
                   >
                     <FaTimes />
                   </button>
@@ -194,7 +103,7 @@ export default function DevelopmentCategoryPage() {
                     className="min-w-[140px] sm:min-w-[160px] font-medium cursor-pointer text-sm md:text-base"
                     aria-label="Filter tools by type"
                   >
-                    {toolTypes.map((type) => (
+                    {categoryTypes.map((type) => (
                       <option key={type} value={type}>
                         {type === "all" ? "All Types" : type}
                       </option>
@@ -208,11 +117,11 @@ export default function DevelopmentCategoryPage() {
           {/* Results count */}
           <div className="mb-4 md:mb-6">
             <h2 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white">
-              {filteredTools.length} Tools Found
+              {filteredTools.length} {filteredTools.length === 1 ? "Tool" : "Tools"} Found
             </h2>
             {searchQuery && (
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                Showing results for "{searchQuery}"
+                Showing results for &quot;{searchQuery}&quot;
                 {activeType !== "all" ? ` in ${activeType}` : ""}
               </p>
             )}
@@ -222,7 +131,7 @@ export default function DevelopmentCategoryPage() {
           {filteredTools.length === 0 && (
             <div className="text-center py-16 bg-white/90 dark:bg-cardBg/90 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg mb-6">
               <div className="mb-4 flex justify-center">
-                <MagnifyingGlassIcon className="w-10 h-10 text-gray-400" />
+                <FaSearch className="w-10 h-10 text-gray-400" />
               </div>
               <h3 className="text-xl font-medium mb-2 text-gray-800 dark:text-white">
                 No tools found
@@ -244,21 +153,56 @@ export default function DevelopmentCategoryPage() {
 
           {/* Tools Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {filteredTools.map((tool, index) => (
-              <div key={index}>
-                <ToolCard
-                  name={tool.name}
-                  url={tool.url}
-                  description={tool.description}
-                  type={tool.type}
-                  category="Development Environment"
-                />
-              </div>
+            {filteredTools.map((tool) => (
+              <ToolCard
+                key={tool.name}
+                name={tool.name}
+                url={tool.url}
+                description={tool.description}
+                type={tool.type}
+                category={category.shortTitle}
+              />
             ))}
           </div>
 
-          {/* Navigation */}
+          {/* Prev / Next category navigation */}
           <div className="mt-10 md:mt-14 flex flex-wrap gap-4 justify-between items-center">
+            {prev ? (
+              <Link
+                href={`/categories/${prev.id}`}
+                className="group flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-accent transition-colors"
+              >
+                <ArrowLeftIcon className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+                <span>
+                  <span className="block text-xs text-gray-500 dark:text-gray-400">
+                    Previous category
+                  </span>
+                  {prev.shortTitle}
+                </span>
+              </Link>
+            ) : (
+              <span />
+            )}
+            {next ? (
+              <Link
+                href={`/categories/${next.id}`}
+                className="group flex items-center gap-2 text-right text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-accent transition-colors"
+              >
+                <span>
+                  <span className="block text-xs text-gray-500 dark:text-gray-400">
+                    Next category
+                  </span>
+                  {next.shortTitle}
+                </span>
+                <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            ) : (
+              <span />
+            )}
+          </div>
+
+          {/* Navigation */}
+          <div className="mt-6 md:mt-10 flex flex-wrap gap-4 justify-between items-center border-t border-gray-200 dark:border-gray-800 pt-6">
             <Link
               href="/categories"
               className="flex items-center text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors"

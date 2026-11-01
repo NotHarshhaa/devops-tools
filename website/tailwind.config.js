@@ -1,10 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./app/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./app/**/*.{js,ts,jsx,tsx,mdx}", "./lib/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
@@ -25,9 +21,25 @@ module.exports = {
         "gradient-end": "#FFCC70",
       },
       fontFamily: {
-        sans: ["Outfit", "Inter", "sans-serif"],
-        display: ["Space Grotesk", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        sans: [
+          "var(--font-outfit)",
+          "Outfit",
+          "Inter",
+          "system-ui",
+          "sans-serif",
+        ],
+        display: [
+          "var(--font-space-grotesk)",
+          "Space Grotesk",
+          "system-ui",
+          "sans-serif",
+        ],
+        mono: [
+          "var(--font-jetbrains-mono)",
+          "JetBrains Mono",
+          "ui-monospace",
+          "monospace",
+        ],
       },
       boxShadow: {
         neon: "0 0 5px theme(colors.accent), 0 0 20px theme(colors.accent-light)",
@@ -39,16 +51,12 @@ module.exports = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "hero-pattern": "url('/grid-pattern.svg')",
-        "grid-pattern": "url('/grid.svg')",
-        "card-pattern": "url('/card-pattern.svg')",
       },
       animation: {
         float: "float 6s ease-in-out infinite",
         glow: "glow 3s ease-in-out infinite alternate",
         "rotate-slow": "rotate 10s linear infinite",
         "text-gradient": "text-gradient 8s linear infinite",
-        bounce: "bounce 1s infinite",
-        pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
         float: {

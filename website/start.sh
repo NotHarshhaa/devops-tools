@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Always run from the directory containing this script, so npm commands
+# work no matter where the script is invoked from (e.g. ./website/start.sh)
+cd "$(dirname "$0")" || exit 1
+
 # Color codes for terminal output
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -89,7 +93,6 @@ case $option in
     *)
         echo -e "\n${RED}Invalid option.${NC}"
         echo -e "${YELLOW}Please select a number between 1-5.${NC}"
-        exit 1
         exit 1
         ;;
 esac

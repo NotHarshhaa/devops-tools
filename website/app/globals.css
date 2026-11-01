@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+/* Fonts (Outfit, Space Grotesk, JetBrains Mono) are self-hosted via
+   next/font in app/layout.tsx - no external @import needed here. */
 
 :root {
     --foreground-rgb: 31, 41, 55;
@@ -306,10 +307,6 @@ body::before {
 
     .animate-wave {
         animation: wave 8s ease-in-out infinite;
-    }
-
-    .animate-glow {
-        @apply animate-glow;
     }
 
     .animate-pulse {

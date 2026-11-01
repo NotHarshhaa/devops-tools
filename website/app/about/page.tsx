@@ -25,7 +25,7 @@ export default function AboutPage() {
             <p className="text-base md:text-xl mb-4 md:mb-8 max-w-3xl mx-auto text-white">
               A comprehensive collection of essential DevOps tools for
               development, deployment, monitoring, automation, security, and
-              more. Whether you're a beginner exploring DevOps or a seasoned
+              more. Whether you&apos;re a beginner exploring DevOps or a seasoned
               engineer looking for the best tools, this site has everything you
               need!
             </p>
@@ -45,12 +45,12 @@ export default function AboutPage() {
               <p className="text-gray-600 dark:text-gray-300 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
                 DevOps Arsenal was created to address a common challenge in the
                 modern development landscape: finding the right tools for the
-                job. Whether you're a beginner or a seasoned engineer, with
+                job. Whether you&apos;re a beginner or a seasoned engineer, with
                 hundreds of DevOps tools available, navigating this ecosystem
                 can be overwhelming.
               </p>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm md:text-base">
-                We've curated a comprehensive collection of over 200 essential
+                We&apos;ve curated a comprehensive collection of over 200 essential
                 DevOps tools across various categories to help developers,
                 operations teams, and organizations build robust, efficient, and
                 scalable development pipelines. Our goal is to save you time in
@@ -153,16 +153,16 @@ export default function AboutPage() {
                     Harshha Reddy
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
-                    I'm a passionate DevOps engineer and developer with
+                    I&apos;m a passionate DevOps engineer and developer with
                     experience in building modern development pipelines and
                     infrastructure. I created DevOps Arsenal to share my
                     knowledge of the DevOps ecosystem and help others navigate
-                    the complex landscape of development tools, whether you're
+                    the complex landscape of development tools, whether you&apos;re
                     just starting out or are a seasoned professional.
                   </p>
                   <p className="text-gray-600 dark:text-gray-300 mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
                     With a background in software development and infrastructure
-                    management, I've worked with teams of all sizes to implement
+                    management, I&apos;ve worked with teams of all sizes to implement
                     efficient, scalable, and reliable DevOps practices.
                   </p>
 
@@ -204,7 +204,7 @@ export default function AboutPage() {
               <p className="text-gray-700 dark:text-gray-300 mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
                 DevOps Arsenal is an open-source project, and we welcome
                 contributions from the community. If you know of a great DevOps
-                tool that's not listed, or if you'd like to improve the
+                tool that&apos;s not listed, or if you&apos;d like to improve the
                 descriptions or categorizations, please consider contributing to
                 our GitHub repository.
               </p>

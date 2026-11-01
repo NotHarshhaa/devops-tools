@@ -1,48 +1,61 @@
 'use client';
 
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 
-type ThemeProviderProps = {
-  children: React.ReactNode;
-};
+type Theme = 'light' | 'dark';
 
 type ThemeContextType = {
-  theme: string;
-  setTheme: (theme: string) => void;
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState('dark');
+/**
+ * Applies the theme class to <html> and persists the choice.
+ */
+function applyTheme(theme: Theme) {
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+  document.documentElement.style.colorScheme = theme;
+}
 
-  // Initialize theme on component mount
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  // The site is dark-first: start dark, then sync with the persisted/system
+  // theme after mount. A blocking script in the root layout has already set
+  // the correct class on <html> before first paint, so there is no flash of
+  // the wrong theme.
+  const [theme, setThemeState] = useState<Theme>('dark');
+
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (storedTheme) {
-      setTheme(storedTheme);
-      document.documentElement.classList.toggle('dark', storedTheme === 'dark');
-    } else if (prefersDark) {
-      setTheme('dark');
-      document.documentElement.classList.add('dark');
-    } else {
-      setTheme('light');
-      document.documentElement.classList.remove('dark');
-    }
+    const isDark = document.documentElement.classList.contains('dark');
+    const initial: Theme = isDark
+      ? 'dark'
+      : storedTheme === 'light'
+        ? 'light'
+        : 'dark';
+    setThemeState(initial);
   }, []);
 
-  const value = {
-    theme,
-    setTheme: (newTheme: string) => {
-      setTheme(newTheme);
-      localStorage.setItem('theme', newTheme);
-      document.documentElement.classList.toggle('dark', newTheme === 'dark');
-    },
-  };
+  // Keep multiple tabs in sync
+  useEffect(() => {
+    const onStorage = (event: StorageEvent) => {
+      if (event.key === 'theme' && (event.newValue === 'light' || event.newValue === 'dark')) {
+        setThemeState(event.newValue);
+        applyTheme(event.newValue);
+      }
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, []);
 
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+  const setTheme = useCallback((newTheme: Theme) => {
+    setThemeState(newTheme);
+    localStorage.setItem('theme', newTheme);
+    applyTheme(newTheme);
+  }, []);
+
+  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {

@@ -1,13 +1,5 @@
-"use client";
-
-import React, { useState } from "react";
-import Link from "next/link";
-import {
-  FaExternalLinkAlt,
-  FaStar,
-  FaCodeBranch,
-  FaToolbox,
-} from "react-icons/fa";
+import React from "react";
+import { FaExternalLinkAlt, FaToolbox } from "react-icons/fa";
 
 interface ToolCardProps {
   name: string;
@@ -24,30 +16,13 @@ export default function ToolCard({
   type,
   category,
 }: ToolCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Generate a consistent pseudo-random number based on the tool name
-  const getRandomNumber = (min: number, max: number) => {
-    const seed = name
-      .split("")
-      .reduce((acc, char) => acc + char.charCodeAt(0), 0);
-    return min + (seed % (max - min));
-  };
-
-  const starCount = getRandomNumber(10, 999);
-  const forkCount = getRandomNumber(5, 150);
-
   return (
-    <div
-      className="card h-full flex flex-col relative overflow-hidden group hover:-translate-y-2 transition-all duration-300 bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm shadow-lg p-3 md:p-6"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="card h-full flex flex-col relative overflow-hidden group hover:-translate-y-2 transition-all duration-300 bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm shadow-lg">
       {/* Top gradient accent */}
       <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 dark:from-accent dark:via-tertiary dark:to-highlight" />
 
       {/* Card content */}
-      <div className="p-3 md:p-6 flex flex-col h-full z-10 relative">
+      <div className="p-4 md:p-6 flex flex-col h-full z-10 relative">
         {/* Category badge */}
         {category && (
           <div className="mb-3">
@@ -74,16 +49,6 @@ export default function ToolCard({
           {description}
         </p>
 
-        {/* Stats bar */}
-        <div className="mb-4 flex items-center text-xs text-gray-500 dark:text-gray-400 space-x-4">
-          <span className="flex items-center">
-            <FaStar className="mr-1 text-yellow-500" /> {starCount}
-          </span>
-          <span className="flex items-center">
-            <FaCodeBranch className="mr-1 text-blue-400" /> {forkCount}
-          </span>
-        </div>
-
         {/* CTA button */}
         <a
           href={url}
@@ -99,12 +64,8 @@ export default function ToolCard({
         </a>
       </div>
 
-      {/* Background glow effect on hover */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br from-purple-50 to-white/20 dark:from-accent/5 dark:to-purple-900/5 rounded-2xl z-0 transition-opacity duration-300 ${
-          isHovered ? "opacity-80" : "opacity-0"
-        }`}
-      ></div>
+      {/* Background glow effect on hover (CSS-only) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-white/20 dark:from-accent/5 dark:to-purple-900/5 rounded-2xl z-0 opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
     </div>
   );
 }
