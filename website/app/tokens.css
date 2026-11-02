@@ -1,0 +1,37 @@
+:root {
+  color-scheme: dark;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(72% 0.15 27); --color-success: oklch(76% 0.13 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  --color-paper: oklch(17% 0.008 250); --color-paper-2: oklch(21% 0.009 250); --color-paper-3: oklch(13.5% 0.007 250);
+  --color-ink: oklch(95% 0.005 250); --color-ink-2: oklch(83% 0.008 250); --color-muted: oklch(71% 0.01 250);
+  --color-rule: oklch(31% 0.01 250); --color-rule-2: oklch(42% 0.012 250);
+  --color-accent: oklch(82% 0.15 80); --color-accent-ink: oklch(18% 0.04 75); --color-accent-soft: oklch(29% 0.05 80); --color-focus: oklch(82% 0.15 80);
+  --color-cool: oklch(77% 0.12 245); --color-cool-soft: oklch(29% 0.05 245);
+  --color-ok: oklch(76% 0.15 150); --color-ok-soft: oklch(24.5% 0.03 150); --color-bad: oklch(70% 0.17 25); --color-bad-soft: oklch(24.5% 0.035 25);
+  --font-display: var(--font-host-grotesk), "Host Grotesk", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
+  --font-outlier: var(--font-atkinson-mono), "Atkinson Hyperlegible Mono", ui-monospace, monospace;
+  --radius-card: 10px; --radius-pill: 6px; --rule-hair: 1px;
+  --shadow-card: none;
+  --tracking-display: -0.03em; --display-weight: 500;
+  --color-accent-text: var(--color-accent);
+}
+
+/* Console's paper dial: the site's light mode. Amber means a person, cool an
+   instrument, in both colourways; the accent deepens to hold contrast on paper. */
+html:not(.dark) {
+  color-scheme: light;
+  --color-paper: oklch(98% 0.006 85); --color-paper-2: oklch(95.5% 0.007 85); --color-paper-3: oklch(92.5% 0.008 85);
+  --color-ink: oklch(19% 0.01 60); --color-ink-2: oklch(33% 0.012 65); --color-muted: oklch(46% 0.012 70);
+  --color-rule: oklch(88% 0.008 85); --color-rule-2: oklch(74% 0.012 80);
+  --color-accent: oklch(58% 0.14 70); --color-accent-ink: oklch(13% 0.05 70); --color-accent-soft: oklch(93% 0.045 85); --color-focus: oklch(56% 0.18 70);
+  --color-accent-text: oklch(38% 0.11 70);
+  --color-cool: oklch(52% 0.14 250); --color-cool-soft: oklch(92% 0.035 245);
+  --color-ok: oklch(47% 0.12 150); --color-ok-soft: oklch(93% 0.03 150); --color-bad: oklch(50% 0.16 25); --color-bad-soft: oklch(94% 0.03 25);
+}

@@ -1,25 +1,19 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
-import { Outfit, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Host_Grotesk, Atkinson_Hyperlegible_Mono } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "./components/ThemeProvider";
 
-const outfit = Outfit({
+const hostGrotesk = Host_Grotesk({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-host-grotesk",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const atkinsonMono = Atkinson_Hyperlegible_Mono({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  variable: "--font-atkinson-mono",
   display: "swap",
 });
 
@@ -57,7 +51,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#7f5af0",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#17181c" },
+    { media: "(prefers-color-scheme: light)", color: "#faf9f5" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -76,16 +73,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${outfit.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans relative`}
+        className={`${hostGrotesk.variable} ${atkinsonMono.variable} font-body bg-paper text-ink`}
       >
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <ThemeProvider>
-          <div className="fixed inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,rgba(156,163,175,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(156,163,175,0.4)_1px,transparent_1px)] bg-[size:40px_40px] dark:bg-[linear-gradient(to_right,rgba(75,85,99,0.5)_1px,transparent_1px),linear-gradient(to_bottom,rgba(75,85,99,0.5)_1px,transparent_1px)]"></div>
-          <div className="fixed inset-0 -z-10 h-full w-full bg-[radial-gradient(rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:20px_20px] dark:bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)]"></div>
+          <a className="skip" href="#main">
+            Skip to content
+          </a>
           <Navbar />
-          <main className="min-h-screen pb-24 relative z-10 overflow-visible">
-            {children}
-          </main>
+          <main id="main">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

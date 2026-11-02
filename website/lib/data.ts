@@ -128,7 +128,7 @@ export const CATEGORIES: ToolCategory[] = [
     title: "Source Code Management (SCM)",
     shortTitle: "Source Code Management",
     description:
-      "Version control tools keep track of every change, making collaboration and automation seamless in DevOps.",
+      "Version control tools keep track of every change, the base every other stage builds on.",
     color: "bg-gradient-to-br from-blue-500 to-cyan-600",
     tools: [
       {
@@ -1075,7 +1075,7 @@ export const CATEGORIES: ToolCategory[] = [
         name: "Slack",
         url: "https://slack.com/",
         description:
-          "Collaboration hub with robust integrations for DevOps alerting.",
+          "Collaboration hub with alerting integrations for DevOps teams.",
         type: "Free & Paid",
       },
       {

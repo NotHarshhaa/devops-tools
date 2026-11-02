@@ -3,8 +3,7 @@
 import { useState, useEffect, useMemo, useRef, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { FaGithub, FaSearch, FaTimes } from "react-icons/fa";
-import { WrenchIcon } from "@heroicons/react/24/solid";
+import { MagnifyingGlassIcon, XMarkIcon, ChevronDownIcon, ChevronUpIcon, ArrowTopRightOnSquareIcon, FolderOpenIcon } from "@heroicons/react/24/outline";
 import ToolCard from "./components/ToolCard";
 import CategoryIcon from "./components/CategoryIcon";
 import { CATEGORIES, TOOL_TYPES, TOTAL_TOOLS } from "@/lib/data";
@@ -17,6 +16,32 @@ function matchesSearch(toolName: string, description: string, type: string, quer
     type.toLowerCase().includes(q)
   );
 }
+
+/** Three real records, shown as the hero's specimen of the index. */
+const SPECIMEN = ["Kubernetes", "Terraform", "GitHub Actions", "Prometheus"]
+  .map((name) => {
+    for (const category of CATEGORIES) {
+      const tool = category.tools.find((t) => t.name === name);
+      if (tool) return { tool, category };
+    }
+    return null;
+  })
+  .filter((x): x is NonNullable<typeof x> => x !== null);
+
+const TYPE_COUNTS = TOOL_TYPES.filter((t) => t !== "all").map((type) => ({
+  type,
+  count: CATEGORIES.reduce(
+    (sum, c) => sum + c.tools.filter((t) => t.type === type).length,
+    0,
+  ),
+}));
+
+const TYPE_MEANING: Record<string, string> = {
+  "Open Source": "Source available. Self-host it, read it, contribute to it.",
+  "Free & Paid": "A free tier for most teams; paid plans once you scale.",
+  Paid: "Commercial licence. Trials live on the vendor's page.",
+  Free: "Free to use, with no paid tier at all.",
+};
 
 function HomeContent() {
   const searchParams = useSearchParams();
@@ -89,173 +114,135 @@ function HomeContent() {
   const activeCategoryData = CATEGORIES.find((cat) => cat.id === activeCategory);
 
   return (
-    <div className="pt-20 relative">
-      {/* Hero Section */}
-      <section className="relative py-16 md:py-24 mb-8 md:mb-12 z-10 mx-2 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 dark:from-accent dark:via-purple-600 dark:to-tertiary rounded-3xl overflow-hidden">
-        <div className="container mx-auto px-4 relative">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 font-display text-white">
-              DevOps Arsenal
-            </h1>
-            <p className="text-lg md:text-xl mb-6 md:mb-8 max-w-3xl mx-auto text-white">
-              A comprehensive collection of essential DevOps tools for
-              development, deployment, monitoring, automation, security, and
-              more. Whether you&apos;re a beginner exploring DevOps or a seasoned
-              engineer looking for the best tools, this site has everything you
-              need!
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-              <Link
-                href="/categories"
-                className="btn bg-white hover:bg-gray-100 text-purple-600 px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg flex items-center"
-              >
-                Explore Categories <WrenchIcon className="w-5 h-5 ml-2" />
-              </Link>
-              <a
-                href="https://github.com/NotHarshhaa/devops-tools"
-                className="btn bg-gray-900 hover:bg-black text-white px-6 py-3 rounded-xl font-medium flex items-center justify-center transition-all duration-300 hover:shadow-lg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub className="mr-2" /> GitHub Repo
-              </a>
+    <div>
+      {/* Hero (Counter): the search over the index */}
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="container">
+          <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-8">
+            <div className="min-w-0 flex-1 basis-[28rem]">
+              <h1 id="hero-title">
+                {TOTAL_TOOLS} tools, one&nbsp;line each.
+              </h1>
+              <p className="lead mt-4 text-ink-2">
+                From your first commit to the pager, in pipeline order.
+              </p>
             </div>
-            <div className="mt-8 flex flex-wrap justify-center gap-6 md:gap-10 text-white/90 text-sm md:text-base">
-              <span className="flex flex-col items-center">
-                <strong className="text-2xl md:text-3xl font-display">{CATEGORIES.length}</strong>
-                Categories
-              </span>
-              <span className="w-px bg-white/30" aria-hidden="true" />
-              <span className="flex flex-col items-center">
-                <strong className="text-2xl md:text-3xl font-display">{TOTAL_TOOLS}+</strong>
-                Curated Tools
-              </span>
-              <span className="w-px bg-white/30" aria-hidden="true" />
-              <span className="flex flex-col items-center">
-                <strong className="text-2xl md:text-3xl font-display">100%</strong>
-                Free to Browse
-              </span>
+            <div className="reading shrink-0">
+              <div>
+                <b>{CATEGORIES.length}</b>
+                <small>categories</small>
+              </div>
+              <div>
+                <b>{TOTAL_TOOLS}</b>
+                <small>tools</small>
+              </div>
             </div>
+          </div>
+
+          <div className="mt-10 max-w-[70rem]">
+            <div className="hero-search">
+              <input
+                type="text"
+                ref={searchRef}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={`Search ${TOTAL_TOOLS} tools`}
+                aria-label="Search tools across all categories"
+                className="input"
+              />
+              <MagnifyingGlassIcon className="h-5 w-5" aria-hidden="true" />
+              <kbd className="kbd-hint" aria-hidden="true">/</kbd>
+            </div>
+            {isGlobalSearch && (
+              <p className="measured mt-3" role="status">
+                <b>{searchTotal}</b> match{searchTotal === 1 ? "" : "es"} below in{" "}
+                <a href="#tools" className="underline decoration-rule-2 underline-offset-4">
+                  the index
+                </a>
+              </p>
+            )}
+          </div>
+
+          {/* The index, as it stands: real records */}
+          <div className="mt-10 max-w-[70rem]">
+            <div className="panels">
+              {SPECIMEN.map(({ tool, category }) => (
+                <div key={tool.name} className="tool-row">
+                  <div className="min-w-0">
+                    <h3>{tool.name}</h3>
+                    <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                      <span className="chip">{category.shortTitle}</span>
+                      <span className="chip chip--cool">{tool.type}</span>
+                    </div>
+                  </div>
+                  <p className="min-w-0">{tool.description}</p>
+                  <span className="tool-host justify-self-end whitespace-nowrap">{new URL(tool.url).hostname.replace(/^www\./, "")}</span>
+                </div>
+              ))}
+            </div>
+            <p className="measured mt-3">and {TOTAL_TOOLS - SPECIMEN.length} more in the full index</p>
           </div>
         </div>
       </section>
 
-      {/* Categories and Tools Section */}
-      <section id="tools" className="py-8 md:py-16 relative z-10 scroll-mt-24">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-10 text-center text-gray-800 dark:text-text-light font-display">
-            Featured DevOps Tools
-          </h2>
-
-          {/* Search and Filter */}
-          <div className="mb-6 md:mb-8 bg-white/90 dark:bg-cardBg/90 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg">
-            <div className="flex flex-col md:flex-row gap-4 md:gap-4">
-              <div className="relative flex-grow">
-                <input
-                  type="text"
-                  ref={searchRef}
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search all tools... (press / to focus)"
-                  aria-label="Search tools across all categories"
-                  className="w-full py-3 px-12 rounded-xl bg-white dark:bg-secondary/50 text-gray-800 dark:text-text-light border border-gray-200 dark:border-transparent focus:ring-2 focus:ring-accent focus:outline-none"
-                />
-                <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery("")}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-800 dark:hover:text-gray-300"
-                    aria-label="Clear search"
-                  >
-                    <FaTimes />
-                  </button>
-                )}
-              </div>
-
-              <div className="flex items-center gap-3">
-                <span className="text-sm whitespace-nowrap text-gray-700 dark:text-gray-300">
-                  Filter by:
-                </span>
-                <div className="relative">
-                  <select
-                    value={activeType}
-                    onChange={(e) => setActiveType(e.target.value)}
-                    className="min-w-[140px] sm:min-w-[160px] font-medium cursor-pointer text-sm md:text-base"
-                    aria-label="Filter tools by type"
-                  >
-                    {TOOL_TYPES.map((type) => (
-                      <option key={type} value={type}>
-                        {type === "all" ? "All Types" : type}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+      {/* The directory: trail of stages + the tool rows */}
+      <section id="tools" className="scroll-mt-24" aria-labelledby="index-title">
+        <div className="container">
+          <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6">
+            <h2 id="index-title" className="min-w-0">
+              Browse by stage
+            </h2>
+            <div className="flex items-center gap-3">
+              <label htmlFor="type-filter" className="caption whitespace-nowrap">
+                Filter by
+              </label>
+              <div className="select">
+                <select
+                  id="type-filter"
+                  value={activeType}
+                  onChange={(e) => setActiveType(e.target.value)}
+                  className="min-w-[160px]"
+                  aria-label="Filter tools by type"
+                >
+                  {TOOL_TYPES.map((type) => (
+                    <option key={type} value={type}>
+                      {type === "all" ? "All types" : type}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-            {/* Categories List */}
-            <div className="md:w-1/4">
-              <div className="bg-white/95 dark:bg-cardBg/95 backdrop-blur-sm p-4 md:p-5 rounded-xl mb-6 md:sticky md:top-20 border border-gray-200 dark:border-gray-800 shadow-lg">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-bold text-gray-800 dark:text-white flex items-center">
-                    <WrenchIcon className="w-5 h-5 mr-2 text-purple-600 dark:text-accent" />{" "}
-                    Categories
-                  </h3>
-                  <button
-                    className="md:hidden bg-gray-100 dark:bg-secondary/30 p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-secondary/50 transition-colors"
-                    onClick={() => setCategoriesExpanded(!categoriesExpanded)}
-                    aria-label={
-                      categoriesExpanded
-                        ? "Collapse categories"
-                        : "Expand categories"
-                    }
-                  >
-                    {categoriesExpanded ? (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-5 h-5"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 15.75l7.5-7.5 7.5 7.5"
-                        />
-                      </svg>
-                    ) : (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-5 h-5"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                        />
-                      </svg>
-                    )}
-                  </button>
-                </div>
+          <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
+            {/* Stages trail */}
+            <div className="lg:sticky lg:top-24 self-start">
+              <div className="panels">
+                <button
+                  type="button"
+                  className="trail-row lg:hidden whitespace-nowrap"
+                  onClick={() => setCategoriesExpanded(!categoriesExpanded)}
+                  aria-expanded={categoriesExpanded}
+                  aria-controls="stage-trail"
+                >
+                  <FolderOpenIcon className="h-4 w-4" aria-hidden="true" />
+                  {categoriesExpanded ? "Hide the stages" : "All stages"}
+                  {categoriesExpanded ? (
+                    <ChevronUpIcon className="h-4 w-4 ml-auto" aria-hidden="true" />
+                  ) : (
+                    <ChevronDownIcon className="h-4 w-4 ml-auto" aria-hidden="true" />
+                  )}
+                </button>
                 <div
-                  className={`max-h-[60vh] overflow-y-auto pr-2 space-y-1 ${!categoriesExpanded && "hidden md:block"}`}
+                  id="stage-trail"
+                  className={`${!categoriesExpanded ? "hidden lg:block" : ""}`}
                 >
                   {CATEGORIES.map((category) => (
                     <button
                       key={category.id}
-                      className={`w-full text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 flex items-center ${
-                        !isGlobalSearch && activeCategory === category.id
-                          ? "bg-accent text-white [&_svg]:!text-white"
-                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-secondary/50"
-                      }`}
+                      type="button"
+                      className="trail-row"
+                      aria-current={!isGlobalSearch && activeCategory === category.id}
                       onClick={() => {
                         setActiveCategory(category.id);
                         setActiveType("all");
@@ -263,207 +250,202 @@ function HomeContent() {
                         setCategoriesExpanded(false);
                       }}
                     >
-                      <span className="mr-2 flex-shrink-0 w-5 h-5">
-                        <CategoryIcon icon={category.icon} />
+                      <span className="h-4 w-4 shrink-0">
+                        <CategoryIcon icon={category.icon} className="h-4 w-4" />
                       </span>
                       {category.shortTitle}
-                      <span className="ml-auto text-xs bg-white/60 dark:bg-secondary/40 rounded-full px-2 py-1 border border-gray-200 dark:border-gray-700">
-                        {category.tools.length}
-                      </span>
+                      <span className="count">{category.tools.length}</span>
                     </button>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Tools Grid */}
-            <div className="md:w-3/4">
-              {/* Global search results across all categories */}
+            {/* Results */}
+            <div className="min-w-0">
               {isGlobalSearch ? (
-                <>
-                  <div className="mb-6 text-sm text-gray-600 dark:text-gray-400">
-                    Found <strong>{searchTotal}</strong>{" "}
-                    {searchTotal === 1 ? "tool" : "tools"} matching &quot;
-                    {searchQuery.trim()}&quot; across{" "}
-                    <strong>{searchResults?.length ?? 0}</strong>{" "}
-                    {searchResults?.length === 1 ? "category" : "categories"}
-                    {activeType !== "all" ? ` in ${activeType}` : ""}
-                  </div>
-
-                  {searchTotal === 0 ? (
-                    <div className="text-center py-16 bg-white/90 dark:bg-cardBg/90 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg">
-                      <div className="mb-4 flex justify-center">
-                        <FaSearch className="w-10 h-10 text-gray-400" />
-                      </div>
-                      <h3 className="text-xl font-medium mb-2 text-gray-800 dark:text-white">
-                        No tools found
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-400 mb-6">
-                        Try adjusting your search or filters
-                      </p>
+                searchTotal === 0 ? (
+                  <div className="panels">
+                    <div className="p-8 text-center">
+                      <h3 className="text-lg font-medium text-ink">No tools found</h3>
+                      <p className="mt-2 text-muted">Try adjusting your search or filters.</p>
                       <button
+                        type="button"
                         onClick={() => {
                           setSearchQuery("");
                           setActiveType("all");
                         }}
-                        className="px-4 py-2 border-2 border-accent text-accent rounded-xl hover:bg-accent/20 transition-all duration-300"
+                        className="btn mt-6"
                       >
                         Reset filters
                       </button>
                     </div>
-                  ) : (
-                    searchResults?.map(({ category, tools }) => (
-                      <div key={category.id} className="mb-10">
-                        <Link
-                          href={`/categories/${category.id}`}
-                          className="inline-flex items-center gap-2 mb-4 text-lg font-bold text-gray-800 dark:text-white hover:text-purple-600 dark:hover:text-accent transition-colors"
-                        >
-                          <span className="w-6 h-6 text-purple-600 dark:text-accent">
-                            <CategoryIcon icon={category.icon} />
+                  </div>
+                ) : (
+                  searchResults?.map(({ category, tools }) => (
+                    <div key={category.id} className="mb-10 last:mb-0">
+                      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                        <h3 className="flex items-center gap-2">
+                          <span className="h-5 w-5 text-muted">
+                            <CategoryIcon icon={category.icon} className="h-5 w-5" />
                           </span>
                           {category.title}
-                          <span className="text-xs font-normal text-gray-500 dark:text-gray-400">
-                            ({tools.length})
-                          </span>
+                        </h3>
+                        <Link
+                          href={`/categories/${category.id}`}
+                          className="caption underline decoration-rule-2 underline-offset-4 hover:text-accent-text"
+                        >
+                          Open the page
                         </Link>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          {tools.map((tool) => (
-                            <ToolCard
-                              key={`${category.id}-${tool.name}`}
-                              name={tool.name}
-                              url={tool.url}
-                              description={tool.description}
-                              type={tool.type}
-                              category={category.shortTitle}
-                            />
-                          ))}
-                        </div>
                       </div>
-                    ))
-                  )}
-                </>
+                      <div className="panels">
+                        {tools.map((tool) => (
+                          <ToolCard
+                            key={`${category.id}-${tool.name}`}
+                            name={tool.name}
+                            url={tool.url}
+                            description={tool.description}
+                            type={tool.type}
+                            category={category.shortTitle}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ))
+                )
               ) : (
                 <>
-                  {/* Active Category Details */}
                   {activeCategoryData && (
-                    <div className="bg-white/90 dark:bg-cardBg/90 backdrop-blur-sm p-4 md:p-6 rounded-xl mb-6 md:mb-8 border border-gray-200 dark:border-gray-800 shadow-lg">
-                      <div className="flex items-center mb-2">
-                        <span className="mr-3 w-8 h-8 text-purple-600 dark:text-accent">
-                          <CategoryIcon icon={activeCategoryData.icon} />
-                        </span>
-                        <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+                    <div className="mb-8 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+                      <div className="min-w-0">
+                        <h3 className="flex items-center gap-3">
+                          <span className="h-6 w-6 shrink-0 text-muted">
+                            <CategoryIcon icon={activeCategoryData.icon} className="h-6 w-6" />
+                          </span>
                           {activeCategoryData.title}
                         </h3>
+                        <p className="mt-2 max-w-prose text-muted">{activeCategoryData.description}</p>
                       </div>
-                      <p className="text-gray-600 dark:text-gray-400 mb-4">
-                        {activeCategoryData.description}
-                      </p>
                       <Link
                         href={`/categories/${activeCategoryData.id}`}
-                        className="inline-flex items-center text-sm font-medium text-purple-600 dark:text-accent hover:underline"
+                        className="caption underline decoration-rule-2 underline-offset-4 hover:text-accent-text"
                       >
-                        Open {activeCategoryData.shortTitle} page →
+                        Open the page
                       </Link>
                     </div>
                   )}
 
-                  {/* Search Results Info */}
                   {searchQuery && (
-                    <div className="mb-6 text-sm text-gray-600 dark:text-gray-400">
-                      Found {activeTools.length}{" "}
-                      {activeTools.length === 1 ? "tool" : "tools"} matching &quot;
-                      {searchQuery}&quot; in {activeType === "all" ? "all types" : activeType}
-                    </div>
+                    <p className="measured mb-4" role="status">
+                      <b>{activeTools.length}</b> match{activeTools.length === 1 ? "" : "es"} for
+                      &quot;{searchQuery}&quot; in {activeType === "all" ? "all types" : activeType}
+                    </p>
                   )}
 
-                  {/* Empty State */}
-                  {activeTools.length === 0 && (
-                    <div className="text-center py-16 bg-white/90 dark:bg-cardBg/90 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg">
-                      <div className="mb-4 flex justify-center">
-                        <FaSearch className="w-10 h-10 text-gray-400" />
+                  {activeTools.length === 0 ? (
+                    <div className="panels">
+                      <div className="p-8 text-center">
+                        <h3 className="text-lg font-medium text-ink">No tools found</h3>
+                        <p className="mt-2 text-muted">Try adjusting your search or filters.</p>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setSearchQuery("");
+                            setActiveType("all");
+                          }}
+                          className="btn mt-6"
+                        >
+                          Reset filters
+                        </button>
                       </div>
-                      <h3 className="text-xl font-medium mb-2 text-gray-800 dark:text-white">
-                        No tools found
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-400 mb-6">
-                        Try adjusting your search or filters
-                      </p>
-                      <button
-                        onClick={() => {
-                          setSearchQuery("");
-                          setActiveType("all");
-                        }}
-                        className="px-4 py-2 border-2 border-accent text-accent rounded-xl hover:bg-accent/20 transition-all duration-300"
-                      >
-                        Reset filters
-                      </button>
+                    </div>
+                  ) : (
+                    <div className="panels">
+                      {activeTools.map((tool) => (
+                        <ToolCard
+                          key={tool.name}
+                          name={tool.name}
+                          url={tool.url}
+                          description={tool.description}
+                          type={tool.type}
+                          category={activeCategoryData?.shortTitle}
+                        />
+                      ))}
                     </div>
                   )}
-
-                  {/* Tools Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {activeTools.map((tool) => (
-                      <ToolCard
-                        key={tool.name}
-                        name={tool.name}
-                        url={tool.url}
-                        description={tool.description}
-                        type={tool.type}
-                        category={activeCategoryData?.shortTitle}
-                      />
-                    ))}
-                  </div>
                 </>
               )}
             </div>
           </div>
+
+          <p className="mt-8">
+            <Link
+              href="/categories"
+              className="caption underline decoration-rule-2 underline-offset-4 hover:text-accent-text"
+            >
+              All twelve stages on one page
+            </Link>
+          </p>
         </div>
       </section>
 
-      {/* View All Categories Button */}
-      <div className="flex justify-center mt-10 mb-16">
-        <Link
-          href="/categories"
-          className="px-6 py-3 bg-white dark:bg-secondary/50 border border-purple-200 dark:border-accent/30 text-purple-600 dark:text-accent rounded-xl hover:bg-purple-50 dark:hover:bg-secondary transition-all duration-300 hover:shadow-lg flex items-center gap-2"
-        >
-          View All Categories
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-5 h-5"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-            />
-          </svg>
-        </Link>
-      </div>
+      {/* What the tools cost */}
+      <section className="mt-section" aria-labelledby="cost-title">
+        <div className="container">
+          <h2 id="cost-title">What the tools cost</h2>
+          <div className="mt-10 overflow-x-auto">
+            <table className="table-plain">
+              <thead>
+                <tr>
+                  <th scope="col">Licence</th>
+                  <th scope="col">Tools</th>
+                  <th scope="col">In practice</th>
+                </tr>
+              </thead>
+              <tbody>
+                {TYPE_COUNTS.map(({ type, count }) => (
+                  <tr key={type}>
+                    <td className="name">{type}</td>
+                    <td className="num">{count}</td>
+                    <td>{TYPE_MEANING[type] ?? ""}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="caption mt-4">Licences are as each vendor publishes them today.</p>
+        </div>
+      </section>
 
-      {/* Call to Action */}
-      <section className="bg-gradient-to-r from-purple-200/80 to-pink-200/80 dark:from-accent/20 dark:to-tertiary/20 py-10 md:py-16 border border-gray-200 dark:border-gray-800 relative z-10 backdrop-blur-sm mx-2 rounded-xl mt-12 md:mt-20 shadow-md">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-800 dark:text-white font-display">
-            Join the DevOps Arsenal Community
-          </h2>
-          <p className="text-base md:text-lg mb-5 md:mb-6 max-w-3xl mx-auto text-gray-700 dark:text-gray-300">
-            Whether you&apos;re a beginner exploring DevOps or a seasoned engineer,
-            start using these tools to streamline your processes or contribute
-            to our collection to help others improve their workflows.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="https://github.com/NotHarshhaa/devops-tools"
-              className="px-6 py-3 bg-purple-600 dark:bg-accent text-white rounded-xl hover:bg-purple-700 dark:hover:bg-accent-dark transition-all duration-300 hover:shadow-lg flex items-center"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub className="mr-2" /> Star on GitHub
-            </a>
+      {/* Close: contribute */}
+      <section className="band mt-section" aria-labelledby="close-title">
+        <div className="container">
+          <div className="flex flex-wrap items-center justify-between gap-x-16 gap-y-6">
+            <div className="min-w-0 max-w-prose">
+              <h2 id="close-title">Add the tool we missed</h2>
+              <p className="mt-4 text-ink-2">
+                The arsenal is one open-source repo. A pull request keeps a line current.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="https://github.com/NotHarshhaa/devops-tools"
+                className="btn btn--primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contribute on GitHub
+              </a>
+              <a
+                href="https://github.com/NotHarshhaa/devops-tools/blob/main/CONTRIBUTING.md"
+                className="btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read the guide
+                <ArrowTopRightOnSquareIcon className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -476,7 +458,7 @@ export default function Home() {
     <Suspense
       fallback={
         <div className="flex justify-center items-center h-64 pt-20">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent" />
+          <div className="spinner" role="status" aria-label="Loading the index" />
         </div>
       }
     >
