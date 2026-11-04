@@ -555,6 +555,7 @@ Monitoring & observability tools **track system health, performance, and securit
 🔹 **[Sentry](https://sentry.io/)** (Free & Enterprise) – Real-time error tracking and performance monitoring for applications.  
 🔹 **[Sumo Logic](https://www.sumologic.com/)** (Enterprise) – **Cloud-native machine data analytics**, delivering real-time security and operational intelligence.  
 🔹 **[Dynatrace](https://www.dynatrace.com/)** (Enterprise) – **AI-driven full-stack monitoring**, offering automatic anomaly detection and deep observability.  
+🔹 **[WatchCron](https://watchcron.com/)** (Free & Enterprise) – **Cron job monitoring service**, alerting when scheduled tasks fail, run late, or stop running.  
 
 ---
 
