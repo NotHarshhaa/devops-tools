@@ -548,6 +548,7 @@ Monitoring & observability tools **track system health, performance, and securit
 🔹 **[Zabbix](https://www.zabbix.com/)** (Open Source & Enterprise) – **Scalable and enterprise-grade monitoring**, supporting metrics collection and alerting.  
 🔹 **[VictoriaMetrics](https://victoriametrics.com/)** (Open Source & Enterprise) – Cost-efficient, scalable time-series database and monitoring solution.  
 🔹 **[Uptime Kuma](https://uptime.kuma.pet/)** (Open Source) – Self-hosted uptime monitoring with a polished UI and many notification channels.  
+* **[SiteWatcher](https://github.com/NikKurkov/sitewatcher)** (Open Source, MIT): Self-hosted website uptime, response time, and TLS and domain expiry monitoring with public status pages.
 🔹 **[Middleware](https://middleware.io/)** (Free & Enterprise) – A **full-stack observability platform**, offering **tracing, logging, and APM** with a free developer account.  
 🔹 **[Datadog](https://www.datadoghq.com/)** (Enterprise) – **Cloud-based monitoring and analytics platform**, integrating logs, metrics, and traces.  
 🔹 **[New Relic](https://newrelic.com/)** (Enterprise) – A **performance monitoring and observability platform**, providing real-time insights into applications and infrastructure.  
