@@ -96,6 +96,10 @@ Development environment tools **streamline the setup** of consistent software co
 🔹 **[Coder](https://coder.com/)** (Open Source & Enterprise) – Self-hosted remote development environments powered by Terraform.  
 🔹 **[DevPod](https://devpod.sh/)** (Open Source) – Provider-agnostic tool for reproducible, cloud-native dev containers anywhere.  
 
+### ⚡ **Developer Productivity Utilities**
+
+🔹 **[Telert](https://github.com/navig-me/telert)** (Open Source) – Get alerts when terminal commands finish, via Telegram, Teams, Slack or Desktop.
+
 ---
 
 ## 📝 **Source Code Management (SCM)**  
